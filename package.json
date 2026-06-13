@@ -1,0 +1,82 @@
+{
+  "name": "@useauthio/widgets",
+  "version": "0.3.0",
+  "description": "Embeddable React widgets for Authio: drop the SSO Connection and Directory Sync surfaces into your own product so your IT-admin customers self-serve enterprise setup without leaving your app.",
+  "license": "MIT",
+  "author": "Authio",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/authio-com/authio_widgets.git"
+  },
+  "homepage": "https://authio.com",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./sso-connection": {
+      "types": "./dist/sso-connection.d.ts",
+      "import": "./dist/sso-connection.js",
+      "require": "./dist/sso-connection.cjs"
+    },
+    "./directory-sync": {
+      "types": "./dist/directory-sync.d.ts",
+      "import": "./dist/directory-sync.js",
+      "require": "./dist/directory-sync.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "messages",
+    "vendor",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./scripts/build-messages.mjs && tsup",
+    "build:messages": "node ./scripts/build-messages.mjs",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "size": "node ./scripts/check-bundle-size.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@useauthio/node": "file:./vendor/authio-node"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitest/coverage-v8": "^3.2.6",
+    "jsdom": "^25.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.6"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "pnpm": {
+    "overrides": {
+      "esbuild": ">=0.28.1"
+    }
+  }
+}

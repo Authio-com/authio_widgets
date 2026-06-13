@@ -1,0 +1,86 @@
+name: security
+
+# Standalone security scan for this public repo. Previously this called the
+# private authio-com/authio_ci `security-pr.yml@v1` reusable workflow; the
+# equivalent steps (Trivy filesystem scan, Gitleaks secret scan, Semgrep
+# SAST, and a Node dependency audit) are inlined here so the repo has no
+# dependency on any private repository. Actions are SHA-pinned.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      # --- Trivy filesystem scan (HIGH,CRITICAL; fail on findings) ---
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+
+      # --- Gitleaks secret scan ---
+      - name: Gitleaks
+        shell: bash
+        env:
+          GITLEAKS_VERSION: 8.21.2
+        run: |
+          set -euo pipefail
+          curl -sSfL -o /tmp/gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          /tmp/gitleaks detect --source . --no-banner --redact --verbose
+
+      # --- Semgrep SAST (secrets blocking; stack rules advisory) ---
+      - name: Install Semgrep
+        shell: bash
+        run: pip install 'semgrep==1.96.0'
+
+      - name: Semgrep secrets (blocking)
+        shell: bash
+        run: semgrep scan --config p/secrets --error --severity ERROR
+
+      - name: Semgrep stack rules (advisory)
+        shell: bash
+        run: |
+          set +e
+          semgrep scan \
+            --config p/default \
+            --config p/security-audit \
+            --config p/typescript \
+            --config p/javascript \
+            --severity ERROR
+          code=$?
+          if [ "$code" -ne 0 ]; then
+            echo "::warning::Semgrep stack rules reported findings — triage in Security tab; not blocking merges yet."
+          fi
+          exit 0
+
+      # --- Node dependency audit (HIGH+) ---
+      - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: pnpm audit (high+)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f pnpm-lock.yaml ]; then
+            echo "No pnpm-lock.yaml — skipping pnpm audit"
+            exit 0
+          fi
+          pnpm audit --audit-level=high

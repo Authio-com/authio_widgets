@@ -1,0 +1,223 @@
+{
+  "widgets": {
+    "common": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "close": "Close",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "retry": "Retry",
+      "previous": "Previous",
+      "next": "Next",
+      "never": "never",
+      "dash": "—"
+    },
+    "ssoConnection": {
+      "title": "SSO connections",
+      "subtitle": "Configure SAML or OIDC for this organization. Your changes apply instantly.",
+      "newConnection": "New connection",
+      "empty": "No SSO connections yet. Click \"{action}\" to add one.",
+      "loading": "Loading connections…",
+      "columns": {
+        "provider": "Provider",
+        "protocol": "Protocol",
+        "status": "Status",
+        "configured": "Configured"
+      },
+      "status": {
+        "pending": "pending",
+        "active": "active",
+        "suspended": "suspended"
+      },
+      "actions": {
+        "metadata": "Metadata",
+        "test": "Test",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "deleteConfirm": "Delete the {provider} connection?",
+      "form": {
+        "provider": "Provider",
+        "protocol": "Protocol",
+        "displayName": "Display name (optional)",
+        "displayNamePlaceholder": "Acme Okta production",
+        "metadataXml": "IdP metadata XML",
+        "oidcDiscovery": "OIDC discovery URL",
+        "clientId": "Client ID",
+        "clientSecret": "Client secret",
+        "create": "Create connection",
+        "saving": "Saving…"
+      },
+      "edit": {
+        "title": "Edit {provider}",
+        "displayName": "Display name"
+      },
+      "metadataPanel": {
+        "title": "SP metadata",
+        "download": "Download XML"
+      }
+    },
+    "directorySync": {
+      "title": "Directory sync",
+      "subtitle": "Provision a SCIM 2.0 directory so user lifecycle (joiners, movers, leavers) stays in lockstep with this organization.",
+      "provision": "Provision directory",
+      "empty": "No directories yet. Click \"{action}\" to create one.",
+      "loading": "Loading directories…",
+      "columns": {
+        "name": "Name",
+        "provider": "Provider",
+        "state": "State",
+        "lastSync": "Last sync"
+      },
+      "state": {
+        "active": "active",
+        "paused": "paused",
+        "revoked": "revoked"
+      },
+      "actions": {
+        "users": "Users",
+        "syncNow": "Sync now",
+        "rotateToken": "Rotate token",
+        "delete": "Delete"
+      },
+      "deleteConfirm": "Delete the {name} directory? This stops SCIM sync immediately.",
+      "form": {
+        "displayName": "Display name",
+        "displayNamePlaceholder": "Acme HQ Okta",
+        "provider": "Provider",
+        "provision": "Provision",
+        "provisioning": "Provisioning…"
+      },
+      "secret": {
+        "title": "Save these credentials",
+        "done": "I've copied them",
+        "warning": "We can't show this bearer token again. Paste it into your IdP's SCIM configuration immediately. If you lose it, rotate the token and re-paste.",
+        "scimEndpoint": "SCIM endpoint",
+        "bearerToken": "Bearer token"
+      },
+      "users": {
+        "title": "{count, plural, =0 {Synced users} one {# synced user} other {# synced users}}",
+        "loading": "Loading users…",
+        "empty": "No users have synced yet. Provision a few in your IdP and click \"Sync now\".",
+        "columns": {
+          "email": "Email",
+          "name": "Name",
+          "status": "Status",
+          "lastSynced": "Last synced"
+        },
+        "status": {
+          "active": "active",
+          "suspended": "suspended",
+          "deactivated": "deactivated"
+        }
+      }
+    },
+    "auditLog": {
+      "title": "Audit log",
+      "subtitle": "Activity log for this organization. Click a row to expand.",
+      "export": "Export CSV",
+      "exporting": "Exporting…",
+      "loading": "Loading events…",
+      "empty": "No audit events found for the current filters.",
+      "filters": {
+        "actor": "Actor ID",
+        "actorPlaceholder": "user_abc",
+        "eventType": "Event type",
+        "eventTypePlaceholder": "session.created",
+        "after": "After",
+        "before": "Before",
+        "apply": "Apply filters",
+        "clear": "Clear"
+      },
+      "columns": {
+        "time": "Time",
+        "action": "Action",
+        "actor": "Actor",
+        "target": "Target",
+        "ip": "IP"
+      },
+      "range": "{from}–{to} of {total, plural, one {# event} other {# events}}"
+    },
+    "apiKeys": {
+      "title": "API keys",
+      "subtitle": "Manage API keys for this project. Revoked keys stop working immediately.",
+      "create": "Create key",
+      "loading": "Loading keys…",
+      "empty": "No API keys yet. Create one above.",
+      "columns": {
+        "name": "Name",
+        "prefix": "Prefix",
+        "created": "Created",
+        "lastUsed": "Last used"
+      },
+      "revoke": "Revoke",
+      "revokeConfirm": "Revoke key \"{name}\"? This cannot be undone.",
+      "reveal": {
+        "badge": "Key created",
+        "warning": "Copy this key now — it won't be shown again.",
+        "saved": "I've saved it"
+      },
+      "form": {
+        "name": "Key name",
+        "namePlaceholder": "Production key",
+        "scopes": "Scopes (optional, space-separated)",
+        "scopesPlaceholder": "read write",
+        "expiry": "Expires in (days, optional)",
+        "expiryPlaceholder": "90",
+        "create": "Create key",
+        "creating": "Creating…"
+      }
+    },
+    "userSessions": {
+      "title": "Active sessions",
+      "subtitle": "Your active sign-in sessions. Revoke any you don't recognize.",
+      "revokeAll": "Revoke all sessions",
+      "revokeAllConfirm": "Revoke all sessions? You'll be signed out everywhere.",
+      "loading": "Loading sessions…",
+      "empty": "No active sessions found.",
+      "columns": {
+        "device": "Device / browser",
+        "ip": "IP",
+        "location": "Location",
+        "lastActive": "Last active"
+      },
+      "unknownBrowser": "Unknown browser",
+      "revoke": "Revoke",
+      "revokeConfirm": "Revoke this session?"
+    },
+    "organizationSwitcher": {
+      "loading": "Loading…",
+      "select": "Select organization",
+      "empty": "No organizations found.",
+      "addOrganization": "Add organization",
+      "ariaLabel": "Organizations"
+    },
+    "pipes": {
+      "title": "Connected Accounts",
+      "subtitle": "Connect your accounts to allow this app to act on your behalf.",
+      "connect": "Connect",
+      "connectAria": "Connect {provider}",
+      "disconnect": "Disconnect",
+      "disconnectAria": "Disconnect {provider}",
+      "disconnecting": "Disconnecting…",
+      "connected": "Connected",
+      "connectedWith": "Connected · {email}",
+      "errorFallback": "Failed to load connected accounts.",
+      "retry": "Retry"
+    }
+  },
+  "error": {
+    "network_error": "Couldn't reach the server. Check your connection and try again.",
+    "widget_origin_mismatch": "This widget isn't authorized to run on this site.",
+    "widget_token_expired": "Your session expired. Reload the page to continue.",
+    "widget_token_revoked": "Access was revoked. Reload the page to continue.",
+    "widget_scope_required": "This action isn't permitted for this widget.",
+    "missing_token": "This widget is missing its access token.",
+    "missing_organization_id": "This widget is missing an organization id.",
+    "load_failed": "Something went wrong while loading. Please try again.",
+    "connect_failed": "Couldn't start the connection. Please try again.",
+    "revoke_failed": "Couldn't disconnect that account. Please try again.",
+    "client_error": "Something went wrong. Please try again.",
+    "unknown": "Something went wrong. Please try again."
+  }
+}

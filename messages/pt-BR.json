@@ -1,0 +1,223 @@
+{
+  "widgets": {
+    "common": {
+      "cancel": "Cancelar",
+      "save": "Salvar",
+      "close": "Fechar",
+      "copy": "Copiar",
+      "copied": "Copiado!",
+      "retry": "Tentar novamente",
+      "previous": "Anterior",
+      "next": "Próximo",
+      "never": "nunca",
+      "dash": "—"
+    },
+    "ssoConnection": {
+      "title": "Conexões SSO",
+      "subtitle": "Configure SAML ou OIDC para esta organização. Suas alterações são aplicadas instantaneamente.",
+      "newConnection": "Nova conexão",
+      "empty": "Ainda não há conexões SSO. Clique em \"{action}\" para adicionar uma.",
+      "loading": "Carregando conexões…",
+      "columns": {
+        "provider": "Provedor",
+        "protocol": "Protocolo",
+        "status": "Status",
+        "configured": "Configurado"
+      },
+      "status": {
+        "pending": "pendente",
+        "active": "ativo",
+        "suspended": "suspenso"
+      },
+      "actions": {
+        "metadata": "Metadados",
+        "test": "Testar",
+        "edit": "Editar",
+        "delete": "Excluir"
+      },
+      "deleteConfirm": "Excluir a conexão {provider}?",
+      "form": {
+        "provider": "Provedor",
+        "protocol": "Protocolo",
+        "displayName": "Nome de exibição (opcional)",
+        "displayNamePlaceholder": "Acme Okta produção",
+        "metadataXml": "XML de metadados do IdP",
+        "oidcDiscovery": "URL de descoberta OIDC",
+        "clientId": "ID do cliente",
+        "clientSecret": "Segredo do cliente",
+        "create": "Criar conexão",
+        "saving": "Salvando…"
+      },
+      "edit": {
+        "title": "Editar {provider}",
+        "displayName": "Nome de exibição"
+      },
+      "metadataPanel": {
+        "title": "Metadados do SP",
+        "download": "Baixar XML"
+      }
+    },
+    "directorySync": {
+      "title": "Sincronização de diretório",
+      "subtitle": "Provisione um diretório SCIM 2.0 para que o ciclo de vida dos usuários (entradas, mudanças, saídas) permaneça em sincronia com esta organização.",
+      "provision": "Provisionar diretório",
+      "empty": "Ainda não há diretórios. Clique em \"{action}\" para criar um.",
+      "loading": "Carregando diretórios…",
+      "columns": {
+        "name": "Nome",
+        "provider": "Provedor",
+        "state": "Estado",
+        "lastSync": "Última sincronização"
+      },
+      "state": {
+        "active": "ativo",
+        "paused": "pausado",
+        "revoked": "revogado"
+      },
+      "actions": {
+        "users": "Usuários",
+        "syncNow": "Sincronizar agora",
+        "rotateToken": "Girar token",
+        "delete": "Excluir"
+      },
+      "deleteConfirm": "Excluir o diretório {name}? Isso interrompe a sincronização SCIM imediatamente.",
+      "form": {
+        "displayName": "Nome de exibição",
+        "displayNamePlaceholder": "Acme HQ Okta",
+        "provider": "Provedor",
+        "provision": "Provisionar",
+        "provisioning": "Provisionando…"
+      },
+      "secret": {
+        "title": "Salve estas credenciais",
+        "done": "Eu as copiei",
+        "warning": "Não podemos mostrar este token Bearer novamente. Cole-o imediatamente na configuração SCIM do seu IdP. Se você o perder, gire o token e cole-o novamente.",
+        "scimEndpoint": "Endpoint SCIM",
+        "bearerToken": "Token Bearer"
+      },
+      "users": {
+        "title": "{count, plural, =0 {Usuários sincronizados} one {# usuário sincronizado} other {# usuários sincronizados}}",
+        "loading": "Carregando usuários…",
+        "empty": "Nenhum usuário foi sincronizado ainda. Provisione alguns no seu IdP e clique em \"Sincronizar agora\".",
+        "columns": {
+          "email": "E-mail",
+          "name": "Nome",
+          "status": "Status",
+          "lastSynced": "Última sincronização"
+        },
+        "status": {
+          "active": "ativo",
+          "suspended": "suspenso",
+          "deactivated": "desativado"
+        }
+      }
+    },
+    "auditLog": {
+      "title": "Log de auditoria",
+      "subtitle": "Log de atividade desta organização. Clique em uma linha para expandir.",
+      "export": "Exportar CSV",
+      "exporting": "Exportando…",
+      "loading": "Carregando eventos…",
+      "empty": "Nenhum evento de auditoria encontrado para os filtros atuais.",
+      "filters": {
+        "actor": "ID do ator",
+        "actorPlaceholder": "user_abc",
+        "eventType": "Tipo de evento",
+        "eventTypePlaceholder": "session.created",
+        "after": "Depois de",
+        "before": "Antes de",
+        "apply": "Aplicar filtros",
+        "clear": "Limpar"
+      },
+      "columns": {
+        "time": "Horário",
+        "action": "Ação",
+        "actor": "Ator",
+        "target": "Alvo",
+        "ip": "IP"
+      },
+      "range": "{from}–{to} de {total, plural, one {# evento} other {# eventos}}"
+    },
+    "apiKeys": {
+      "title": "Chaves de API",
+      "subtitle": "Gerencie as chaves de API deste projeto. Chaves revogadas param de funcionar imediatamente.",
+      "create": "Criar chave",
+      "loading": "Carregando chaves…",
+      "empty": "Ainda não há chaves de API. Crie uma acima.",
+      "columns": {
+        "name": "Nome",
+        "prefix": "Prefixo",
+        "created": "Criada",
+        "lastUsed": "Último uso"
+      },
+      "revoke": "Revogar",
+      "revokeConfirm": "Revogar a chave \"{name}\"? Isso não pode ser desfeito.",
+      "reveal": {
+        "badge": "Chave criada",
+        "warning": "Copie esta chave agora — ela não será exibida novamente.",
+        "saved": "Eu a salvei"
+      },
+      "form": {
+        "name": "Nome da chave",
+        "namePlaceholder": "Chave de produção",
+        "scopes": "Escopos (opcional, separados por espaços)",
+        "scopesPlaceholder": "read write",
+        "expiry": "Expira em (dias, opcional)",
+        "expiryPlaceholder": "90",
+        "create": "Criar chave",
+        "creating": "Criando…"
+      }
+    },
+    "userSessions": {
+      "title": "Sessões ativas",
+      "subtitle": "Suas sessões de login ativas. Revogue qualquer uma que você não reconheça.",
+      "revokeAll": "Revogar todas as sessões",
+      "revokeAllConfirm": "Revogar todas as sessões? Você será desconectado em todos os lugares.",
+      "loading": "Carregando sessões…",
+      "empty": "Nenhuma sessão ativa encontrada.",
+      "columns": {
+        "device": "Dispositivo / navegador",
+        "ip": "IP",
+        "location": "Local",
+        "lastActive": "Última atividade"
+      },
+      "unknownBrowser": "Navegador desconhecido",
+      "revoke": "Revogar",
+      "revokeConfirm": "Revogar esta sessão?"
+    },
+    "organizationSwitcher": {
+      "loading": "Carregando…",
+      "select": "Selecionar organização",
+      "empty": "Nenhuma organização encontrada.",
+      "addOrganization": "Adicionar organização",
+      "ariaLabel": "Organizações"
+    },
+    "pipes": {
+      "title": "Contas conectadas",
+      "subtitle": "Conecte suas contas para permitir que este app aja em seu nome.",
+      "connect": "Conectar",
+      "connectAria": "Conectar {provider}",
+      "disconnect": "Desconectar",
+      "disconnectAria": "Desconectar {provider}",
+      "disconnecting": "Desconectando…",
+      "connected": "Conectado",
+      "connectedWith": "Conectado · {email}",
+      "errorFallback": "Não foi possível carregar as contas conectadas.",
+      "retry": "Tentar novamente"
+    }
+  },
+  "error": {
+    "network_error": "Não foi possível acessar o servidor. Verifique sua conexão e tente novamente.",
+    "widget_origin_mismatch": "Este widget não está autorizado neste site.",
+    "widget_token_expired": "Sua sessão expirou. Recarregue a página para continuar.",
+    "widget_token_revoked": "O acesso foi revogado. Recarregue a página para continuar.",
+    "widget_scope_required": "Esta ação não é permitida para este widget.",
+    "missing_token": "Este widget está sem o token de acesso.",
+    "missing_organization_id": "Este widget está sem um id de organização.",
+    "load_failed": "Algo deu errado ao carregar. Tente novamente.",
+    "connect_failed": "Não foi possível iniciar a conexão. Tente novamente.",
+    "revoke_failed": "Não foi possível desconectar essa conta. Tente novamente.",
+    "client_error": "Algo deu errado. Tente novamente.",
+    "unknown": "Algo deu errado. Tente novamente."
+  }
+}

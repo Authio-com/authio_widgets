@@ -1,0 +1,223 @@
+{
+  "widgets": {
+    "common": {
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "close": "Fermer",
+      "copy": "Copier",
+      "copied": "Copié !",
+      "retry": "Réessayer",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "never": "jamais",
+      "dash": "—"
+    },
+    "ssoConnection": {
+      "title": "Connexions SSO",
+      "subtitle": "Configurez SAML ou OIDC pour cette organisation. Vos modifications s’appliquent instantanément.",
+      "newConnection": "Nouvelle connexion",
+      "empty": "Aucune connexion SSO pour le moment. Cliquez sur « {action} » pour en ajouter une.",
+      "loading": "Chargement des connexions…",
+      "columns": {
+        "provider": "Fournisseur",
+        "protocol": "Protocole",
+        "status": "Statut",
+        "configured": "Configuré"
+      },
+      "status": {
+        "pending": "en attente",
+        "active": "actif",
+        "suspended": "suspendu"
+      },
+      "actions": {
+        "metadata": "Métadonnées",
+        "test": "Tester",
+        "edit": "Modifier",
+        "delete": "Supprimer"
+      },
+      "deleteConfirm": "Supprimer la connexion {provider} ?",
+      "form": {
+        "provider": "Fournisseur",
+        "protocol": "Protocole",
+        "displayName": "Nom d’affichage (facultatif)",
+        "displayNamePlaceholder": "Acme Okta production",
+        "metadataXml": "XML de métadonnées IdP",
+        "oidcDiscovery": "URL de découverte OIDC",
+        "clientId": "ID client",
+        "clientSecret": "Secret client",
+        "create": "Créer la connexion",
+        "saving": "Enregistrement…"
+      },
+      "edit": {
+        "title": "Modifier {provider}",
+        "displayName": "Nom d’affichage"
+      },
+      "metadataPanel": {
+        "title": "Métadonnées SP",
+        "download": "Télécharger le XML"
+      }
+    },
+    "directorySync": {
+      "title": "Synchronisation d’annuaire",
+      "subtitle": "Provisionnez un annuaire SCIM 2.0 pour que le cycle de vie des utilisateurs (arrivées, mutations, départs) reste aligné avec cette organisation.",
+      "provision": "Provisionner un annuaire",
+      "empty": "Aucun annuaire pour le moment. Cliquez sur « {action} » pour en créer un.",
+      "loading": "Chargement des annuaires…",
+      "columns": {
+        "name": "Nom",
+        "provider": "Fournisseur",
+        "state": "État",
+        "lastSync": "Dernière synchronisation"
+      },
+      "state": {
+        "active": "actif",
+        "paused": "en pause",
+        "revoked": "révoqué"
+      },
+      "actions": {
+        "users": "Utilisateurs",
+        "syncNow": "Synchroniser maintenant",
+        "rotateToken": "Renouveler le jeton",
+        "delete": "Supprimer"
+      },
+      "deleteConfirm": "Supprimer l’annuaire {name} ? Cela arrête immédiatement la synchronisation SCIM.",
+      "form": {
+        "displayName": "Nom d’affichage",
+        "displayNamePlaceholder": "Acme HQ Okta",
+        "provider": "Fournisseur",
+        "provision": "Provisionner",
+        "provisioning": "Provisionnement…"
+      },
+      "secret": {
+        "title": "Enregistrez ces identifiants",
+        "done": "Je les ai copiés",
+        "warning": "Nous ne pouvons pas réafficher ce jeton Bearer. Collez-le immédiatement dans la configuration SCIM de votre IdP. Si vous le perdez, renouvelez le jeton et collez-le à nouveau.",
+        "scimEndpoint": "Point de terminaison SCIM",
+        "bearerToken": "Jeton Bearer"
+      },
+      "users": {
+        "title": "{count, plural, =0 {Utilisateurs synchronisés} one {# utilisateur synchronisé} other {# utilisateurs synchronisés}}",
+        "loading": "Chargement des utilisateurs…",
+        "empty": "Aucun utilisateur n’a encore été synchronisé. Provisionnez-en quelques-uns dans votre IdP et cliquez sur « Synchroniser maintenant ».",
+        "columns": {
+          "email": "E-mail",
+          "name": "Nom",
+          "status": "Statut",
+          "lastSynced": "Dernière synchronisation"
+        },
+        "status": {
+          "active": "actif",
+          "suspended": "suspendu",
+          "deactivated": "désactivé"
+        }
+      }
+    },
+    "auditLog": {
+      "title": "Journal d’audit",
+      "subtitle": "Journal d’activité de cette organisation. Cliquez sur une ligne pour la développer.",
+      "export": "Exporter en CSV",
+      "exporting": "Exportation…",
+      "loading": "Chargement des événements…",
+      "empty": "Aucun événement d’audit trouvé pour les filtres actuels.",
+      "filters": {
+        "actor": "ID d’acteur",
+        "actorPlaceholder": "user_abc",
+        "eventType": "Type d’événement",
+        "eventTypePlaceholder": "session.created",
+        "after": "Après",
+        "before": "Avant",
+        "apply": "Appliquer les filtres",
+        "clear": "Effacer"
+      },
+      "columns": {
+        "time": "Heure",
+        "action": "Action",
+        "actor": "Acteur",
+        "target": "Cible",
+        "ip": "IP"
+      },
+      "range": "{from}–{to} sur {total, plural, one {# événement} other {# événements}}"
+    },
+    "apiKeys": {
+      "title": "Clés API",
+      "subtitle": "Gérez les clés API de ce projet. Les clés révoquées cessent immédiatement de fonctionner.",
+      "create": "Créer une clé",
+      "loading": "Chargement des clés…",
+      "empty": "Aucune clé API pour le moment. Créez-en une ci-dessus.",
+      "columns": {
+        "name": "Nom",
+        "prefix": "Préfixe",
+        "created": "Créée",
+        "lastUsed": "Dernière utilisation"
+      },
+      "revoke": "Révoquer",
+      "revokeConfirm": "Révoquer la clé « {name} » ? Cette action est irréversible.",
+      "reveal": {
+        "badge": "Clé créée",
+        "warning": "Copiez cette clé maintenant — elle ne sera plus affichée.",
+        "saved": "Je l’ai enregistrée"
+      },
+      "form": {
+        "name": "Nom de la clé",
+        "namePlaceholder": "Clé de production",
+        "scopes": "Portées (facultatif, séparées par des espaces)",
+        "scopesPlaceholder": "read write",
+        "expiry": "Expire dans (jours, facultatif)",
+        "expiryPlaceholder": "90",
+        "create": "Créer une clé",
+        "creating": "Création…"
+      }
+    },
+    "userSessions": {
+      "title": "Sessions actives",
+      "subtitle": "Vos sessions de connexion actives. Révoquez celles que vous ne reconnaissez pas.",
+      "revokeAll": "Révoquer toutes les sessions",
+      "revokeAllConfirm": "Révoquer toutes les sessions ? Vous serez déconnecté partout.",
+      "loading": "Chargement des sessions…",
+      "empty": "Aucune session active trouvée.",
+      "columns": {
+        "device": "Appareil / navigateur",
+        "ip": "IP",
+        "location": "Emplacement",
+        "lastActive": "Dernière activité"
+      },
+      "unknownBrowser": "Navigateur inconnu",
+      "revoke": "Révoquer",
+      "revokeConfirm": "Révoquer cette session ?"
+    },
+    "organizationSwitcher": {
+      "loading": "Chargement…",
+      "select": "Sélectionner une organisation",
+      "empty": "Aucune organisation trouvée.",
+      "addOrganization": "Ajouter une organisation",
+      "ariaLabel": "Organisations"
+    },
+    "pipes": {
+      "title": "Comptes connectés",
+      "subtitle": "Connectez vos comptes pour autoriser cette application à agir en votre nom.",
+      "connect": "Connecter",
+      "connectAria": "Connecter {provider}",
+      "disconnect": "Déconnecter",
+      "disconnectAria": "Déconnecter {provider}",
+      "disconnecting": "Déconnexion…",
+      "connected": "Connecté",
+      "connectedWith": "Connecté · {email}",
+      "errorFallback": "Impossible de charger les comptes connectés.",
+      "retry": "Réessayer"
+    }
+  },
+  "error": {
+    "network_error": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
+    "widget_origin_mismatch": "Ce widget n’est pas autorisé sur ce site.",
+    "widget_token_expired": "Votre session a expiré. Rechargez la page pour continuer.",
+    "widget_token_revoked": "L’accès a été révoqué. Rechargez la page pour continuer.",
+    "widget_scope_required": "Cette action n’est pas autorisée pour ce widget.",
+    "missing_token": "Ce widget n’a pas de jeton d’accès.",
+    "missing_organization_id": "Ce widget n’a pas d’identifiant d’organisation.",
+    "load_failed": "Une erreur s’est produite lors du chargement. Veuillez réessayer.",
+    "connect_failed": "Impossible de démarrer la connexion. Veuillez réessayer.",
+    "revoke_failed": "Impossible de déconnecter ce compte. Veuillez réessayer.",
+    "client_error": "Une erreur s’est produite. Veuillez réessayer.",
+    "unknown": "Une erreur s’est produite. Veuillez réessayer."
+  }
+}

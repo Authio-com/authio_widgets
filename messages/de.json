@@ -1,0 +1,223 @@
+{
+  "widgets": {
+    "common": {
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "close": "Schließen",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "retry": "Erneut versuchen",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "never": "nie",
+      "dash": "—"
+    },
+    "ssoConnection": {
+      "title": "SSO-Verbindungen",
+      "subtitle": "Konfigurieren Sie SAML oder OIDC für diese Organisation. Ihre Änderungen werden sofort wirksam.",
+      "newConnection": "Neue Verbindung",
+      "empty": "Noch keine SSO-Verbindungen. Klicken Sie auf „{action}“, um eine hinzuzufügen.",
+      "loading": "Verbindungen werden geladen…",
+      "columns": {
+        "provider": "Anbieter",
+        "protocol": "Protokoll",
+        "status": "Status",
+        "configured": "Konfiguriert"
+      },
+      "status": {
+        "pending": "ausstehend",
+        "active": "aktiv",
+        "suspended": "ausgesetzt"
+      },
+      "actions": {
+        "metadata": "Metadaten",
+        "test": "Testen",
+        "edit": "Bearbeiten",
+        "delete": "Löschen"
+      },
+      "deleteConfirm": "Die {provider}-Verbindung löschen?",
+      "form": {
+        "provider": "Anbieter",
+        "protocol": "Protokoll",
+        "displayName": "Anzeigename (optional)",
+        "displayNamePlaceholder": "Acme Okta Produktion",
+        "metadataXml": "IdP-Metadaten-XML",
+        "oidcDiscovery": "OIDC-Discovery-URL",
+        "clientId": "Client-ID",
+        "clientSecret": "Client-Secret",
+        "create": "Verbindung erstellen",
+        "saving": "Wird gespeichert…"
+      },
+      "edit": {
+        "title": "{provider} bearbeiten",
+        "displayName": "Anzeigename"
+      },
+      "metadataPanel": {
+        "title": "SP-Metadaten",
+        "download": "XML herunterladen"
+      }
+    },
+    "directorySync": {
+      "title": "Verzeichnissynchronisierung",
+      "subtitle": "Richten Sie ein SCIM-2.0-Verzeichnis ein, damit der Benutzerlebenszyklus (Eintritte, Wechsel, Austritte) mit dieser Organisation Schritt hält.",
+      "provision": "Verzeichnis einrichten",
+      "empty": "Noch keine Verzeichnisse. Klicken Sie auf „{action}“, um eines zu erstellen.",
+      "loading": "Verzeichnisse werden geladen…",
+      "columns": {
+        "name": "Name",
+        "provider": "Anbieter",
+        "state": "Zustand",
+        "lastSync": "Letzte Synchronisierung"
+      },
+      "state": {
+        "active": "aktiv",
+        "paused": "pausiert",
+        "revoked": "widerrufen"
+      },
+      "actions": {
+        "users": "Benutzer",
+        "syncNow": "Jetzt synchronisieren",
+        "rotateToken": "Token rotieren",
+        "delete": "Löschen"
+      },
+      "deleteConfirm": "Das Verzeichnis {name} löschen? Dadurch wird die SCIM-Synchronisierung sofort gestoppt.",
+      "form": {
+        "displayName": "Anzeigename",
+        "displayNamePlaceholder": "Acme HQ Okta",
+        "provider": "Anbieter",
+        "provision": "Einrichten",
+        "provisioning": "Wird eingerichtet…"
+      },
+      "secret": {
+        "title": "Speichern Sie diese Zugangsdaten",
+        "done": "Ich habe sie kopiert",
+        "warning": "Wir können dieses Bearer-Token nicht erneut anzeigen. Fügen Sie es sofort in die SCIM-Konfiguration Ihres IdP ein. Falls Sie es verlieren, rotieren Sie das Token und fügen es erneut ein.",
+        "scimEndpoint": "SCIM-Endpunkt",
+        "bearerToken": "Bearer-Token"
+      },
+      "users": {
+        "title": "{count, plural, =0 {Synchronisierte Benutzer} one {# synchronisierter Benutzer} other {# synchronisierte Benutzer}}",
+        "loading": "Benutzer werden geladen…",
+        "empty": "Es wurden noch keine Benutzer synchronisiert. Richten Sie einige in Ihrem IdP ein und klicken Sie auf „Jetzt synchronisieren“.",
+        "columns": {
+          "email": "E-Mail",
+          "name": "Name",
+          "status": "Status",
+          "lastSynced": "Zuletzt synchronisiert"
+        },
+        "status": {
+          "active": "aktiv",
+          "suspended": "ausgesetzt",
+          "deactivated": "deaktiviert"
+        }
+      }
+    },
+    "auditLog": {
+      "title": "Audit-Protokoll",
+      "subtitle": "Aktivitätsprotokoll für diese Organisation. Klicken Sie auf eine Zeile, um sie zu erweitern.",
+      "export": "CSV exportieren",
+      "exporting": "Wird exportiert…",
+      "loading": "Ereignisse werden geladen…",
+      "empty": "Für die aktuellen Filter wurden keine Audit-Ereignisse gefunden.",
+      "filters": {
+        "actor": "Akteur-ID",
+        "actorPlaceholder": "user_abc",
+        "eventType": "Ereignistyp",
+        "eventTypePlaceholder": "session.created",
+        "after": "Nach",
+        "before": "Vor",
+        "apply": "Filter anwenden",
+        "clear": "Zurücksetzen"
+      },
+      "columns": {
+        "time": "Zeit",
+        "action": "Aktion",
+        "actor": "Akteur",
+        "target": "Ziel",
+        "ip": "IP"
+      },
+      "range": "{from}–{to} von {total, plural, one {# Ereignis} other {# Ereignissen}}"
+    },
+    "apiKeys": {
+      "title": "API-Schlüssel",
+      "subtitle": "Verwalten Sie API-Schlüssel für dieses Projekt. Widerrufene Schlüssel funktionieren sofort nicht mehr.",
+      "create": "Schlüssel erstellen",
+      "loading": "Schlüssel werden geladen…",
+      "empty": "Noch keine API-Schlüssel. Erstellen Sie oben einen.",
+      "columns": {
+        "name": "Name",
+        "prefix": "Präfix",
+        "created": "Erstellt",
+        "lastUsed": "Zuletzt verwendet"
+      },
+      "revoke": "Widerrufen",
+      "revokeConfirm": "Schlüssel „{name}“ widerrufen? Dies kann nicht rückgängig gemacht werden.",
+      "reveal": {
+        "badge": "Schlüssel erstellt",
+        "warning": "Kopieren Sie diesen Schlüssel jetzt — er wird nicht erneut angezeigt.",
+        "saved": "Ich habe ihn gespeichert"
+      },
+      "form": {
+        "name": "Schlüsselname",
+        "namePlaceholder": "Produktionsschlüssel",
+        "scopes": "Berechtigungen (optional, durch Leerzeichen getrennt)",
+        "scopesPlaceholder": "read write",
+        "expiry": "Läuft ab in (Tagen, optional)",
+        "expiryPlaceholder": "90",
+        "create": "Schlüssel erstellen",
+        "creating": "Wird erstellt…"
+      }
+    },
+    "userSessions": {
+      "title": "Aktive Sitzungen",
+      "subtitle": "Ihre aktiven Anmeldesitzungen. Widerrufen Sie alle, die Sie nicht erkennen.",
+      "revokeAll": "Alle Sitzungen widerrufen",
+      "revokeAllConfirm": "Alle Sitzungen widerrufen? Sie werden überall abgemeldet.",
+      "loading": "Sitzungen werden geladen…",
+      "empty": "Keine aktiven Sitzungen gefunden.",
+      "columns": {
+        "device": "Gerät / Browser",
+        "ip": "IP",
+        "location": "Standort",
+        "lastActive": "Zuletzt aktiv"
+      },
+      "unknownBrowser": "Unbekannter Browser",
+      "revoke": "Widerrufen",
+      "revokeConfirm": "Diese Sitzung widerrufen?"
+    },
+    "organizationSwitcher": {
+      "loading": "Wird geladen…",
+      "select": "Organisation auswählen",
+      "empty": "Keine Organisationen gefunden.",
+      "addOrganization": "Organisation hinzufügen",
+      "ariaLabel": "Organisationen"
+    },
+    "pipes": {
+      "title": "Verbundene Konten",
+      "subtitle": "Verbinden Sie Ihre Konten, damit diese App in Ihrem Namen handeln kann.",
+      "connect": "Verbinden",
+      "connectAria": "{provider} verbinden",
+      "disconnect": "Trennen",
+      "disconnectAria": "{provider} trennen",
+      "disconnecting": "Wird getrennt…",
+      "connected": "Verbunden",
+      "connectedWith": "Verbunden · {email}",
+      "errorFallback": "Verbundene Konten konnten nicht geladen werden.",
+      "retry": "Erneut versuchen"
+    }
+  },
+  "error": {
+    "network_error": "Der Server ist nicht erreichbar. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "widget_origin_mismatch": "Dieses Widget ist für diese Website nicht autorisiert.",
+    "widget_token_expired": "Ihre Sitzung ist abgelaufen. Laden Sie die Seite neu, um fortzufahren.",
+    "widget_token_revoked": "Der Zugriff wurde widerrufen. Laden Sie die Seite neu, um fortzufahren.",
+    "widget_scope_required": "Diese Aktion ist für dieses Widget nicht zulässig.",
+    "missing_token": "Diesem Widget fehlt sein Zugriffstoken.",
+    "missing_organization_id": "Diesem Widget fehlt eine Organisations-ID.",
+    "load_failed": "Beim Laden ist etwas schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "connect_failed": "Die Verbindung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
+    "revoke_failed": "Dieses Konto konnte nicht getrennt werden. Bitte versuchen Sie es erneut.",
+    "client_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  }
+}
