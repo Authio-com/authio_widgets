@@ -1,6 +1,6 @@
 {
   "name": "@useauthio/widgets",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Embeddable React widgets for Authio: drop the SSO Connection and Directory Sync surfaces into your own product so your IT-admin customers self-serve enterprise setup without leaving your app.",
   "license": "MIT",
   "author": "Authio",
@@ -36,7 +36,6 @@
     "dist",
     "src",
     "messages",
-    "vendor",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"
@@ -58,7 +57,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@useauthio/node": "file:./vendor/authio-node"
+    "@useauthio/node": "^0.2.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.0",

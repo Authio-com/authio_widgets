@@ -8,6 +8,3 @@ coverage
 .vscode
 examples/*/node_modules
 examples/*/dist
-# vendor/authio-node/dist is intentionally checked in — it ships
-# the prebuilt JWKS-verifier the widgets depend on at runtime.
-!vendor/**/dist

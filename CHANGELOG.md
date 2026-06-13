@@ -2,6 +2,15 @@
 
 All notable changes to `@useauthio/widgets`.
 
+## 0.3.1 — 2026-06-13
+
+**Installable from npm.** `0.3.0` declared its `@useauthio/node`
+dependency as `file:./vendor/authio-node`, a local path that does not
+resolve when installed from the registry, so `npm install
+@useauthio/widgets` failed for every external user. The dependency now
+points at the published `@useauthio/node` (`^0.2.0`) and the vendored
+copy has been removed from the package.
+
 ## 0.2.0 — 2026-06-11
 
 **Widget localization.** Every widget now renders in six languages —
