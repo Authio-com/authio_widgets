@@ -78,7 +78,8 @@
         "users": "Usuários",
         "syncNow": "Sincronizar agora",
         "rotateToken": "Girar token",
-        "delete": "Excluir"
+        "delete": "Excluir",
+        "groups": "Grupos"
       },
       "deleteConfirm": "Excluir o diretório {name}? Isso interrompe a sincronização SCIM imediatamente.",
       "form": {
@@ -109,6 +110,16 @@
           "active": "ativo",
           "suspended": "suspenso",
           "deactivated": "desativado"
+        }
+      },
+      "groups": {
+        "title": "{count, plural, =0 {Grupos sincronizados} one {# grupo sincronizado} other {# grupos sincronizados}}",
+        "loading": "Carregando grupos…",
+        "empty": "Nenhum grupo sincronizado ainda. Provisione grupos no seu IdP para preencher esta lista.",
+        "columns": {
+          "name": "Grupo",
+          "members": "Membros",
+          "lastUpdated": "Última atualização"
         }
       }
     },

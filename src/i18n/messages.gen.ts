@@ -442,7 +442,8 @@ export const directorySync: LocaleCatalog = {
       "users": "Benutzer",
       "syncNow": "Jetzt synchronisieren",
       "rotateToken": "Token rotieren",
-      "delete": "Löschen"
+      "delete": "Löschen",
+      "groups": "Gruppen"
     },
     "deleteConfirm": "Das Verzeichnis {name} löschen? Dadurch wird die SCIM-Synchronisierung sofort gestoppt.",
     "form": {
@@ -474,6 +475,16 @@ export const directorySync: LocaleCatalog = {
         "suspended": "ausgesetzt",
         "deactivated": "deaktiviert"
       }
+    },
+    "groups": {
+      "title": "{count, plural, =0 {Synchronisierte Gruppen} one {# synchronisierte Gruppe} other {# synchronisierte Gruppen}}",
+      "loading": "Gruppen werden geladen…",
+      "empty": "Noch keine Gruppen synchronisiert. Legen Sie Gruppen in Ihrem IdP an, um diese Liste zu füllen.",
+      "columns": {
+        "name": "Gruppe",
+        "members": "Mitglieder",
+        "lastUpdated": "Zuletzt aktualisiert"
+      }
     }
   },
   "fr": {
@@ -497,7 +508,8 @@ export const directorySync: LocaleCatalog = {
       "users": "Utilisateurs",
       "syncNow": "Synchroniser maintenant",
       "rotateToken": "Renouveler le jeton",
-      "delete": "Supprimer"
+      "delete": "Supprimer",
+      "groups": "Groupes"
     },
     "deleteConfirm": "Supprimer l’annuaire {name} ? Cela arrête immédiatement la synchronisation SCIM.",
     "form": {
@@ -529,6 +541,16 @@ export const directorySync: LocaleCatalog = {
         "suspended": "suspendu",
         "deactivated": "désactivé"
       }
+    },
+    "groups": {
+      "title": "{count, plural, =0 {Groupes synchronisés} one {# groupe synchronisé} other {# groupes synchronisés}}",
+      "loading": "Chargement des groupes…",
+      "empty": "Aucun groupe synchronisé pour le moment. Provisionnez des groupes dans votre IdP pour remplir cette liste.",
+      "columns": {
+        "name": "Groupe",
+        "members": "Membres",
+        "lastUpdated": "Dernière mise à jour"
+      }
     }
   },
   "es": {
@@ -552,7 +574,8 @@ export const directorySync: LocaleCatalog = {
       "users": "Usuarios",
       "syncNow": "Sincronizar ahora",
       "rotateToken": "Rotar token",
-      "delete": "Eliminar"
+      "delete": "Eliminar",
+      "groups": "Grupos"
     },
     "deleteConfirm": "¿Eliminar el directorio {name}? Esto detiene la sincronización SCIM de inmediato.",
     "form": {
@@ -584,6 +607,16 @@ export const directorySync: LocaleCatalog = {
         "suspended": "suspendido",
         "deactivated": "desactivado"
       }
+    },
+    "groups": {
+      "title": "{count, plural, =0 {Grupos sincronizados} one {# grupo sincronizado} other {# grupos sincronizados}}",
+      "loading": "Cargando grupos…",
+      "empty": "Aún no hay grupos sincronizados. Provisiona grupos en tu IdP para completar esta lista.",
+      "columns": {
+        "name": "Grupo",
+        "members": "Miembros",
+        "lastUpdated": "Última actualización"
+      }
     }
   },
   "ja": {
@@ -607,7 +640,8 @@ export const directorySync: LocaleCatalog = {
       "users": "ユーザー",
       "syncNow": "今すぐ同期",
       "rotateToken": "トークンをローテーション",
-      "delete": "削除"
+      "delete": "削除",
+      "groups": "グループ"
     },
     "deleteConfirm": "ディレクトリ {name} を削除しますか？ SCIM 同期がただちに停止します。",
     "form": {
@@ -639,6 +673,16 @@ export const directorySync: LocaleCatalog = {
         "suspended": "停止中",
         "deactivated": "無効化済み"
       }
+    },
+    "groups": {
+      "title": "{count, plural, =0 {同期されたグループ} other {同期されたグループ # 件}}",
+      "loading": "グループを読み込み中…",
+      "empty": "まだグループは同期されていません。IdP でグループをプロビジョニングしてください。",
+      "columns": {
+        "name": "グループ",
+        "members": "メンバー",
+        "lastUpdated": "最終更新"
+      }
     }
   },
   "pt-BR": {
@@ -662,7 +706,8 @@ export const directorySync: LocaleCatalog = {
       "users": "Usuários",
       "syncNow": "Sincronizar agora",
       "rotateToken": "Girar token",
-      "delete": "Excluir"
+      "delete": "Excluir",
+      "groups": "Grupos"
     },
     "deleteConfirm": "Excluir o diretório {name}? Isso interrompe a sincronização SCIM imediatamente.",
     "form": {
@@ -693,6 +738,16 @@ export const directorySync: LocaleCatalog = {
         "active": "ativo",
         "suspended": "suspenso",
         "deactivated": "desativado"
+      }
+    },
+    "groups": {
+      "title": "{count, plural, =0 {Grupos sincronizados} one {# grupo sincronizado} other {# grupos sincronizados}}",
+      "loading": "Carregando grupos…",
+      "empty": "Nenhum grupo sincronizado ainda. Provisione grupos no seu IdP para preencher esta lista.",
+      "columns": {
+        "name": "Grupo",
+        "members": "Membros",
+        "lastUpdated": "Última atualização"
       }
     }
   }

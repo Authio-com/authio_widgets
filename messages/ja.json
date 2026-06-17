@@ -78,7 +78,8 @@
         "users": "ユーザー",
         "syncNow": "今すぐ同期",
         "rotateToken": "トークンをローテーション",
-        "delete": "削除"
+        "delete": "削除",
+        "groups": "グループ"
       },
       "deleteConfirm": "ディレクトリ {name} を削除しますか？ SCIM 同期がただちに停止します。",
       "form": {
@@ -109,6 +110,16 @@
           "active": "有効",
           "suspended": "停止中",
           "deactivated": "無効化済み"
+        }
+      },
+      "groups": {
+        "title": "{count, plural, =0 {同期されたグループ} other {同期されたグループ # 件}}",
+        "loading": "グループを読み込み中…",
+        "empty": "まだグループは同期されていません。IdP でグループをプロビジョニングしてください。",
+        "columns": {
+          "name": "グループ",
+          "members": "メンバー",
+          "lastUpdated": "最終更新"
         }
       }
     },

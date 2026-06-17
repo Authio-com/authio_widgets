@@ -78,7 +78,8 @@
         "users": "Utilisateurs",
         "syncNow": "Synchroniser maintenant",
         "rotateToken": "Renouveler le jeton",
-        "delete": "Supprimer"
+        "delete": "Supprimer",
+        "groups": "Groupes"
       },
       "deleteConfirm": "Supprimer l’annuaire {name} ? Cela arrête immédiatement la synchronisation SCIM.",
       "form": {
@@ -109,6 +110,16 @@
           "active": "actif",
           "suspended": "suspendu",
           "deactivated": "désactivé"
+        }
+      },
+      "groups": {
+        "title": "{count, plural, =0 {Groupes synchronisés} one {# groupe synchronisé} other {# groupes synchronisés}}",
+        "loading": "Chargement des groupes…",
+        "empty": "Aucun groupe synchronisé pour le moment. Provisionnez des groupes dans votre IdP pour remplir cette liste.",
+        "columns": {
+          "name": "Groupe",
+          "members": "Membres",
+          "lastUpdated": "Dernière mise à jour"
         }
       }
     },
