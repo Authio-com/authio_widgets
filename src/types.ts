@@ -138,6 +138,14 @@ export interface DirectoryUser {
   last_synced_at?: string | null;
 }
 
+export interface DirectoryGroup {
+  id: string;
+  display_name: string;
+  external_id?: string | null;
+  member_count: number;
+  last_updated_at: string;
+}
+
 // =====================================================================
 // Pipes types — mirror pipes_providers + pipes_connections (migration 0075).
 // =====================================================================

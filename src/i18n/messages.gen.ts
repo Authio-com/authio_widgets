@@ -374,6 +374,7 @@ export const directorySync: LocaleCatalog = {
     },
     "actions": {
       "users": "Users",
+      "groups": "Groups",
       "syncNow": "Sync now",
       "rotateToken": "Rotate token",
       "delete": "Delete"
@@ -407,6 +408,16 @@ export const directorySync: LocaleCatalog = {
         "active": "active",
         "suspended": "suspended",
         "deactivated": "deactivated"
+      }
+    },
+    "groups": {
+      "title": "{count, plural, =0 {Synced groups} one {# synced group} other {# synced groups}}",
+      "loading": "Loading groups…",
+      "empty": "No groups have synced yet. Provision groups in your IdP to populate this list.",
+      "columns": {
+        "name": "Group",
+        "members": "Members",
+        "lastUpdated": "Last updated"
       }
     }
   },

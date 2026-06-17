@@ -37,6 +37,7 @@ import {
 import { ensureStylesInjected } from "./styles";
 import type {
   Directory,
+  DirectoryGroup,
   DirectoryProvider,
   DirectoryUser,
   WidgetClientOptions,
@@ -112,6 +113,11 @@ export function AuthioDirectorySyncWidget(
   const [usersFor, setUsersFor] = useState<{
     directoryId: string;
     users: DirectoryUser[];
+    loading: boolean;
+  } | null>(null);
+  const [groupsFor, setGroupsFor] = useState<{
+    directoryId: string;
+    groups: DirectoryGroup[];
     loading: boolean;
   } | null>(null);
 
@@ -253,6 +259,7 @@ export function AuthioDirectorySyncWidget(
   const handleViewUsers = useCallback(
     async (directoryId: string) => {
       setUsersFor({ directoryId, users: [], loading: true });
+      setGroupsFor(null);
       try {
         const out = await client.fetch<{ data: DirectoryUser[] }>(
           `/widget/directories/${directoryId}/users`,
@@ -260,6 +267,25 @@ export function AuthioDirectorySyncWidget(
         setUsersFor({ directoryId, users: out.data, loading: false });
       } catch (err) {
         setUsersFor({ directoryId, users: [], loading: false });
+        const e = asWidget(err);
+        setError(e);
+        emit({ type: "error", error: e });
+      }
+    },
+    [client, emit],
+  );
+
+  const handleViewGroups = useCallback(
+    async (directoryId: string) => {
+      setGroupsFor({ directoryId, groups: [], loading: true });
+      setUsersFor(null);
+      try {
+        const out = await client.fetch<{ data: DirectoryGroup[] }>(
+          `/widget/directories/${directoryId}/groups`,
+        );
+        setGroupsFor({ directoryId, groups: out.data, loading: false });
+      } catch (err) {
+        setGroupsFor({ directoryId, groups: [], loading: false });
         const e = asWidget(err);
         setError(e);
         emit({ type: "error", error: e });
@@ -325,6 +351,7 @@ export function AuthioDirectorySyncWidget(
           onSyncNow={handleSyncNow}
           onRotateToken={handleRotateToken}
           onViewUsers={handleViewUsers}
+          onViewGroups={handleViewGroups}
         />
       )}
 
@@ -335,6 +362,16 @@ export function AuthioDirectorySyncWidget(
           users={usersFor.users}
           loading={usersFor.loading}
           onClose={() => setUsersFor(null)}
+        />
+      )}
+
+      {groupsFor && (
+        <GroupsPanel
+          t={t}
+          directoryId={groupsFor.directoryId}
+          groups={groupsFor.groups}
+          loading={groupsFor.loading}
+          onClose={() => setGroupsFor(null)}
         />
       )}
     </div>
@@ -353,6 +390,7 @@ function DirectoryList(props: {
   onSyncNow: (id: string) => void | Promise<void>;
   onRotateToken: (id: string) => void | Promise<void>;
   onViewUsers: (id: string) => void | Promise<void>;
+  onViewGroups: (id: string) => void | Promise<void>;
 }): ReactElement {
   const { t } = props;
   if (props.loading) {
@@ -412,6 +450,13 @@ function DirectoryList(props: {
                   onClick={() => void props.onViewUsers(d.id)}
                 >
                   {t("actions.users")}
+                </button>
+                <button
+                  type="button"
+                  className="aw-btn"
+                  onClick={() => void props.onViewGroups(d.id)}
+                >
+                  {t("actions.groups")}
                 </button>
                 <button
                   type="button"
@@ -639,6 +684,63 @@ function UsersPanel(props: {
                 <td>
                   {u.last_synced_at ? (
                     new Date(u.last_synced_at).toLocaleString()
+                  ) : (
+                    <span className="aw-muted">{t("dash")}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+}
+
+function GroupsPanel(props: {
+  t: Translator;
+  directoryId: string;
+  groups: DirectoryGroup[];
+  loading: boolean;
+  onClose: () => void;
+}): ReactElement {
+  const { t } = props;
+  return (
+    <div className="aw-grid" style={{ marginTop: 12 }}>
+      <header>
+        <h2>{t("groups.title", { count: props.groups.length })}</h2>
+        <button type="button" className="aw-btn" onClick={props.onClose}>
+          {t("close")}
+        </button>
+      </header>
+      {props.loading ? (
+        <div className="aw-empty">
+          <span className="aw-spinner" /> {t("groups.loading")}
+        </div>
+      ) : props.groups.length === 0 ? (
+        <div className="aw-empty">{t("groups.empty")}</div>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>{t("groups.columns.name")}</th>
+              <th>{t("groups.columns.members")}</th>
+              <th>{t("groups.columns.lastUpdated")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.groups.map((g) => (
+              <tr key={g.id}>
+                <td>
+                  {g.display_name}
+                  {g.external_id && (
+                    <span className="aw-muted"> ({g.external_id})</span>
+                  )}
+                </td>
+                <td>{g.member_count}</td>
+                <td>
+                  {g.last_updated_at ? (
+                    new Date(g.last_updated_at).toLocaleString()
                   ) : (
                     <span className="aw-muted">{t("dash")}</span>
                   )}
