@@ -2,6 +2,13 @@
 
 All notable changes to `@useauthio/widgets`.
 
+## 0.3.2 — 2026-06-17
+
+### Added
+- **Directory Sync groups drill-down.** `<AuthioDirectorySyncWidget>` lists
+  synced groups and supports drilling into group membership from the widget
+  surface.
+
 ## 0.3.1 — 2026-06-13
 
 **Installable from npm.** `0.3.0` declared its `@useauthio/node`
