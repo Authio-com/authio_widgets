@@ -1,6 +1,6 @@
 {
   "name": "@useauthio/widgets",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Embeddable React widgets for Authio Admin Portal: SSO, Directory Sync, Domain Verification, Audit Log, API Keys, Sessions, Org Switcher, and Pipes.",
   "license": "MIT",
   "author": "Authio",

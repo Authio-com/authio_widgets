@@ -2,6 +2,14 @@
 
 All notable changes to `@useauthio/widgets`.
 
+## 0.3.4 — 2026-07-09
+
+### Added
+- **`./domain-verification` export subpath** for tree-shakeable imports.
+- **Vite React demo** expanded to the full Admin Portal set (Domain
+  Verification, API Keys, Sessions, Org Switcher) with production
+  identity URL defaults and mint-scope docs.
+
 ## 0.3.3 — 2026-07-09
 
 ### Added
