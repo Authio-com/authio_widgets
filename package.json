@@ -29,6 +29,11 @@
       "types": "./dist/directory-sync.d.ts",
       "import": "./dist/directory-sync.js",
       "require": "./dist/directory-sync.cjs"
+    },
+    "./domain-verification": {
+      "types": "./dist/domain-verification.d.ts",
+      "import": "./dist/domain-verification.js",
+      "require": "./dist/domain-verification.cjs"
     }
   },
   "sideEffects": false,

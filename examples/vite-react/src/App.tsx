@@ -1,9 +1,32 @@
 import { useState } from "react";
 import {
+  AuthioAPIKeysWidget,
   AuthioAuditLogWidget,
   AuthioDirectorySyncWidget,
+  AuthioDomainVerificationWidget,
+  AuthioOrganizationSwitcherWidget,
   AuthioSSOConnectionWidget,
+  AuthioUserSessionsWidget,
 } from "@useauthio/widgets";
+
+type WidgetTab =
+  | "sso"
+  | "dirsync"
+  | "domain"
+  | "audit"
+  | "apikeys"
+  | "sessions"
+  | "orgs";
+
+const TABS: { id: WidgetTab; label: string }[] = [
+  { id: "sso", label: "SSO Connection" },
+  { id: "dirsync", label: "Directory Sync" },
+  { id: "domain", label: "Domain Verification" },
+  { id: "audit", label: "Audit Log" },
+  { id: "apikeys", label: "API Keys" },
+  { id: "sessions", label: "Sessions" },
+  { id: "orgs", label: "Org Switcher" },
+];
 
 /**
  * Demo app: paste a widget JWT minted from your backend (via
@@ -14,14 +37,17 @@ import {
  * fetch, or a server-render template — never expose the customer
  * dashboard's session JWT to the browser. This demo's manual paste
  * box is dev-only.
+ *
+ * Mint scopes for a full Admin Portal demo:
+ *   ["sso_connection","directory_sync","domain_verification",
+ *    "audit_log.read","api_keys.manage","sessions.read","organizations.read"]
+ * (sessions.read / organizations.read also require user_id.)
  */
 export function App() {
   const [token, setToken] = useState("");
   const [orgId, setOrgId] = useState("");
-  const [apiUrl, setApiUrl] = useState("https://auth-api.authio.com");
-  const [activeWidget, setActiveWidget] = useState<
-    "sso" | "dirsync" | "audit" | "apikeys" | "sessions" | "orgs"
-  >("sso");
+  const [apiUrl, setApiUrl] = useState("https://identity.authio.com");
+  const [activeWidget, setActiveWidget] = useState<WidgetTab>("sso");
   const [submitted, setSubmitted] = useState(false);
 
   return (
@@ -36,8 +62,8 @@ export function App() {
     >
       <h1 style={{ fontSize: 24, marginBottom: 4 }}>@useauthio/widgets demo</h1>
       <p style={{ color: "#64748b", marginTop: 0 }}>
-        Embed Authio&apos;s SSO Connection + Directory Sync widgets inside
-        your own product.
+        Embed Authio Admin Portal widgets — SSO, Directory Sync, Domain
+        Verification, and more — inside your own product.
       </p>
 
       <section
@@ -52,9 +78,9 @@ export function App() {
         <h2 style={{ fontSize: 16, marginTop: 0 }}>Widget token</h2>
         <p style={{ color: "#64748b", fontSize: 13, marginTop: 0 }}>
           Mint one via <code>POST /v1/widget-tokens</code> on management-api.
-          The token must carry <code>kind: &quot;widget&quot;</code>, the
-          org id you paste here, and{" "}
-          <code>widget_origins: [&quot;{location.origin}&quot;]</code>.
+          The token must carry <code>kind: &quot;widget&quot;</code>, the org
+          id you paste here, and{" "}
+          <code>widget_origins: [&quot;{typeof location !== "undefined" ? location.origin : "https://…"}&quot;]</code>.
         </p>
         <form
           onSubmit={(e) => {
@@ -134,24 +160,31 @@ export function App() {
 
       {submitted && (
         <>
-          <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
-            {(["sso", "dirsync", "audit"] as const).map((w) => (
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              marginBottom: 16,
+              flexWrap: "wrap",
+            }}
+          >
+            {TABS.map((w) => (
               <button
-                key={w}
+                key={w.id}
                 type="button"
-                onClick={() => setActiveWidget(w)}
+                onClick={() => setActiveWidget(w.id)}
                 style={{
                   height: 32,
                   padding: "0 14px",
                   borderRadius: 4,
                   border: "1px solid #cbd5e1",
-                  background: activeWidget === w ? "#2563eb" : "white",
-                  color: activeWidget === w ? "white" : "#0f172a",
+                  background: activeWidget === w.id ? "#2563eb" : "white",
+                  color: activeWidget === w.id ? "white" : "#0f172a",
                   cursor: "pointer",
                   fontSize: 13,
                 }}
               >
-                {w === "sso" ? "SSO Connection" : w === "dirsync" ? "Directory Sync" : "Audit Log"}
+                {w.label}
               </button>
             ))}
           </div>
@@ -172,8 +205,38 @@ export function App() {
               onDirectoryUpdate={(e) => console.log("[dirsync]", e)}
             />
           )}
+          {activeWidget === "domain" && (
+            <AuthioDomainVerificationWidget
+              token={token}
+              organizationId={orgId}
+              apiUrl={apiUrl}
+              onDomainUpdate={(e) => console.log("[domain]", e)}
+            />
+          )}
           {activeWidget === "audit" && (
             <AuthioAuditLogWidget
+              token={token}
+              organizationId={orgId}
+              apiUrl={apiUrl}
+            />
+          )}
+          {activeWidget === "apikeys" && (
+            <AuthioAPIKeysWidget
+              token={token}
+              organizationId={orgId}
+              apiUrl={apiUrl}
+              onKeyCreated={(e) => console.log("[apikeys]", e)}
+            />
+          )}
+          {activeWidget === "sessions" && (
+            <AuthioUserSessionsWidget
+              token={token}
+              organizationId={orgId}
+              apiUrl={apiUrl}
+            />
+          )}
+          {activeWidget === "orgs" && (
+            <AuthioOrganizationSwitcherWidget
               token={token}
               organizationId={orgId}
               apiUrl={apiUrl}

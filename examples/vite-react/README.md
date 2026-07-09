@@ -1,9 +1,10 @@
 # @useauthio/widgets · Vite React example
 
-Mounts both widgets in a third-party app shell. Demonstrates the
-intended embed model: the customer's BFF mints a `kind: "widget"`
-JWT, hands it to the SPA, and the widgets render against the
-auth-core `/widget/*` API surface.
+Mounts Admin Portal widgets in a third-party app shell: SSO Connection,
+Directory Sync, Domain Verification, Audit Log, API Keys, Sessions, and
+Org Switcher. Demonstrates the intended embed model: the customer's BFF
+mints a `kind: "widget"` JWT, hands it to the SPA, and the widgets render
+against the auth-core `/widget/*` API surface.
 
 ## Run
 
@@ -25,8 +26,17 @@ curl -X POST https://api.authio.com/v1/widget-tokens \
   -H "content-type: application/json" \
   -d '{
     "organization_id": "org_xyz",
-    "scope": ["sso_connection", "directory_sync"],
+    "scope": [
+      "sso_connection",
+      "directory_sync",
+      "domain_verification",
+      "audit_log.read",
+      "api_keys.manage"
+    ],
     "origins": ["http://localhost:5173"],
     "ttl_seconds": 1800
   }'
 ```
+
+For Sessions / Org Switcher, also pass `"user_id": "user_…"` and include
+`sessions.read` / `organizations.read` in `scope`.
