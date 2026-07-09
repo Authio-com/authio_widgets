@@ -215,6 +215,33 @@
       "connectedWith": "Verbunden · {email}",
       "errorFallback": "Verbundene Konten konnten nicht geladen werden.",
       "retry": "Erneut versuchen"
+    },
+    "domainVerification": {
+      "title": "Domain-Verifizierung",
+      "subtitle": "Bestätigen Sie den Besitz Ihrer Unternehmensdomain mit einem DNS-TXT-Eintrag. Erforderlich für SSO-E-Mail-Routing.",
+      "domainLabel": "Zu verifizierende Domain",
+      "domainPlaceholder": "acme.com",
+      "instructions": "Fügen Sie den folgenden TXT-Eintrag bei Ihrem DNS-Anbieter hinzu und klicken Sie dann auf Jetzt prüfen. DNS-Änderungen können einige Minuten dauern.",
+      "record": {
+        "type": "Typ",
+        "host": "Host / Name",
+        "value": "Wert"
+      },
+      "checkNow": "Jetzt prüfen",
+      "checking": "Wird geprüft…",
+      "pending": "TXT-Eintrag noch nicht gefunden. DNS kann einige Minuten brauchen.",
+      "loading": "Domains werden geladen…",
+      "empty": "Noch keine Domains verifiziert.",
+      "columns": {
+        "domain": "Domain",
+        "status": "Status"
+      },
+      "status": {
+        "verified": "verifiziert",
+        "pending": "ausstehend"
+      },
+      "delete": "Entfernen",
+      "deleteConfirm": "{domain} aus dieser Organisation entfernen?"
     }
   },
   "error": {
@@ -229,6 +256,8 @@
     "connect_failed": "Die Verbindung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
     "revoke_failed": "Dieses Konto konnte nicht getrennt werden. Bitte versuchen Sie es erneut.",
     "client_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
-    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "invalid_domain": "Geben Sie einen gültigen Hostnamen wie acme.com ein.",
+    "domain_not_found": "Diese Domain wurde nicht gefunden."
   }
 }

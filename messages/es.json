@@ -215,6 +215,33 @@
       "connectedWith": "Conectado · {email}",
       "errorFallback": "No se pudieron cargar las cuentas conectadas.",
       "retry": "Reintentar"
+    },
+    "domainVerification": {
+      "title": "Verificación de dominio",
+      "subtitle": "Demuestra la propiedad de tu dominio de empresa con un registro DNS TXT. Necesario para el enrutamiento de correo SSO.",
+      "domainLabel": "Dominio a verificar",
+      "domainPlaceholder": "acme.com",
+      "instructions": "Añade el siguiente registro TXT en tu proveedor DNS y luego haz clic en Comprobar ahora. Los cambios de DNS pueden tardar unos minutos.",
+      "record": {
+        "type": "Tipo",
+        "host": "Host / Nombre",
+        "value": "Valor"
+      },
+      "checkNow": "Comprobar ahora",
+      "checking": "Comprobando…",
+      "pending": "Aún no se encontró el registro TXT. La propagación DNS puede tardar unos minutos.",
+      "loading": "Cargando dominios…",
+      "empty": "Aún no hay dominios verificados.",
+      "columns": {
+        "domain": "Dominio",
+        "status": "Estado"
+      },
+      "status": {
+        "verified": "verificado",
+        "pending": "pendiente"
+      },
+      "delete": "Eliminar",
+      "deleteConfirm": "¿Quitar {domain} de esta organización?"
     }
   },
   "error": {
@@ -229,6 +256,8 @@
     "connect_failed": "No se pudo iniciar la conexión. Inténtalo de nuevo.",
     "revoke_failed": "No se pudo desconectar esa cuenta. Inténtalo de nuevo.",
     "client_error": "Algo salió mal. Inténtalo de nuevo.",
-    "unknown": "Algo salió mal. Inténtalo de nuevo."
+    "unknown": "Algo salió mal. Inténtalo de nuevo.",
+    "invalid_domain": "Introduce un nombre de host válido como acme.com.",
+    "domain_not_found": "No se encontró ese dominio."
   }
 }

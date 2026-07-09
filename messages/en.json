@@ -215,6 +215,33 @@
       "connectedWith": "Connected · {email}",
       "errorFallback": "Failed to load connected accounts.",
       "retry": "Retry"
+    },
+    "domainVerification": {
+      "title": "Domain verification",
+      "subtitle": "Prove ownership of your company domain with a DNS TXT record. Required for SSO email routing.",
+      "domainLabel": "Domain to verify",
+      "domainPlaceholder": "acme.com",
+      "instructions": "Add the following TXT record at your DNS provider, then click Check now. DNS changes can take a few minutes to propagate.",
+      "record": {
+        "type": "Type",
+        "host": "Host / Name",
+        "value": "Value"
+      },
+      "checkNow": "Check now",
+      "checking": "Checking…",
+      "pending": "TXT record not found yet. DNS can take a few minutes to propagate.",
+      "loading": "Loading domains…",
+      "empty": "No domains verified yet.",
+      "columns": {
+        "domain": "Domain",
+        "status": "Status"
+      },
+      "status": {
+        "verified": "verified",
+        "pending": "pending"
+      },
+      "delete": "Remove",
+      "deleteConfirm": "Remove {domain} from this organization?"
     }
   },
   "error": {
@@ -229,6 +256,8 @@
     "connect_failed": "Couldn't start the connection. Please try again.",
     "revoke_failed": "Couldn't disconnect that account. Please try again.",
     "client_error": "Something went wrong. Please try again.",
+    "invalid_domain": "Enter a valid hostname like acme.com.",
+    "domain_not_found": "That domain was not found.",
     "unknown": "Something went wrong. Please try again."
   }
 }

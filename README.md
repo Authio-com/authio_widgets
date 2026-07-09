@@ -6,8 +6,9 @@
 > https://authio.com/products/lobby.
 
 Drop-in React widgets that let your customers' IT admins configure
-**SSO connections** and **Directory Sync** *inside your own product*
-— no dashboard bounce.
+**SSO**, **Directory Sync**, **Domain Verification**, **Audit Log**,
+**API Keys**, **Sessions**, **Org Switcher**, and **Pipes** *inside
+your own product* — no dashboard bounce.
 
 ## Install
 
@@ -141,17 +142,31 @@ handle.unmount();
 
 ## What's in the box
 
+**IT Admin Portal (embed in your product):**
+
 - `<AuthioSSOConnectionWidget>` — list, create, edit, delete, and
   test SAML / OIDC connections. Renders the SP metadata XML so the
   IT admin can paste it into Okta / Entra / JumpCloud.
 - `<AuthioDirectorySyncWidget>` — provision Okta SCIM, Microsoft
   Entra ID, Google Workspace, JumpCloud, Rippling, generic SCIM. List
   synced users, trigger a manual sync, rotate the directory bearer.
-- `mountSSOConnectionWidget` / `mountDirectorySyncWidget` — framework-
-  agnostic imperative mount for Vue, Svelte, Angular, vanilla DOM,
-  Web Components, etc.
-- `WidgetClient` + `WidgetError` — the underlying typed HTTP client,
-  exposed for power users.
+- `<AuthioDomainVerificationWidget>` — DNS TXT challenge for org
+  domains (same challenge as the hosted SSO Setup Portal).
+- `<AuthioAuditLogWidget>` — paginated org audit events + CSV export.
+- `<AuthioAPIKeysWidget>` — mint / list / revoke API keys for the org.
+- `<AuthioUserSessionsWidget>` — list and revoke end-user sessions.
+- `<AuthioOrganizationSwitcherWidget>` — switch active org in-session.
+- `<AuthioPipesWidget>` — connect third-party OAuth providers (Pipes).
+
+**Imperative mounts** (`mountSSOConnectionWidget`,
+`mountDirectorySyncWidget`, `mountAuditLogWidget`, …) for Vue, Svelte,
+Angular, vanilla DOM, and Web Components.
+
+**Not yet:** Theme customization (Radix-style tokens). Domain
+Verification is shipped.
+
+`WidgetClient` + `WidgetError` — the underlying typed HTTP client,
+exposed for power users.
 
 ## Security model in one paragraph
 
@@ -172,6 +187,8 @@ caps it at 1 hour. Full threat model: [docs.authio.com/widgets/security](https:/
 - [docs.authio.com/widgets/directory-sync](https://docs.authio.com/widgets/directory-sync)
 - [docs.authio.com/widgets/tokens](https://docs.authio.com/widgets/tokens)
 - [docs.authio.com/widgets/security](https://docs.authio.com/widgets/security)
+
+npm: `@useauthio/widgets` (current: see CHANGELOG).
 
 ## Repo
 

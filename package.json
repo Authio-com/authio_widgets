@@ -1,7 +1,7 @@
 {
   "name": "@useauthio/widgets",
-  "version": "0.3.2",
-  "description": "Embeddable React widgets for Authio: drop the SSO Connection and Directory Sync surfaces into your own product so your IT-admin customers self-serve enterprise setup without leaving your app.",
+  "version": "0.3.3",
+  "description": "Embeddable React widgets for Authio Admin Portal: SSO, Directory Sync, Domain Verification, Audit Log, API Keys, Sessions, Org Switcher, and Pipes.",
   "license": "MIT",
   "author": "Authio",
   "private": false,

@@ -73,6 +73,16 @@ export type {
   MountedPipesWidget,
 } from "./pipes";
 
+export {
+  AuthioDomainVerificationWidget,
+  mountDomainVerificationWidget,
+} from "./domain-verification";
+export type {
+  AuthioDomainVerificationWidgetProps,
+  DomainVerificationEvent,
+  MountedDomainVerificationWidget,
+} from "./domain-verification";
+
 export { WidgetClient } from "./client";
 export { WidgetError } from "./errors";
 
@@ -96,6 +106,8 @@ export type {
   DirectoryProvider,
   DirectoryState,
   DirectoryUser,
+  DomainChallengeRecord,
+  OrgDomain,
   OrgMembership,
   PipesConnection,
   PipesProvider,

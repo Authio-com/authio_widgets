@@ -10,7 +10,8 @@ export type WidgetScope =
   | "sessions.read"
   | "organizations.read"
   | "pipes.read"
-  | "pipes.write";
+  | "pipes.write"
+  | "domain_verification";
 
 /**
  * Optional client-side decoded shape of the widget JWT. The widgets
@@ -229,4 +230,22 @@ export interface OrgMembership {
   role: string;
   status: string;
   joined_at: string;
+}
+
+// =====================================================================
+// Domain verification — mirror org_domains (migration 0001).
+// =====================================================================
+
+export interface OrgDomain {
+  id: string;
+  organization_id: string;
+  domain: string;
+  verified: boolean;
+  created_at: string;
+}
+
+export interface DomainChallengeRecord {
+  type: string;
+  host_prefix: string;
+  value: string;
 }

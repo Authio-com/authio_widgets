@@ -215,6 +215,33 @@
       "connectedWith": "接続済み · {email}",
       "errorFallback": "接続済みアカウントを読み込めませんでした。",
       "retry": "再試行"
+    },
+    "domainVerification": {
+      "title": "ドメイン認証",
+      "subtitle": "DNS TXT レコードで会社ドメインの所有権を証明します。SSO のメールルーティングに必要です。",
+      "domainLabel": "認証するドメイン",
+      "domainPlaceholder": "acme.com",
+      "instructions": "DNS プロバイダーに次の TXT レコードを追加し、「今すぐ確認」をクリックしてください。DNS の反映には数分かかることがあります。",
+      "record": {
+        "type": "タイプ",
+        "host": "ホスト / 名前",
+        "value": "値"
+      },
+      "checkNow": "今すぐ確認",
+      "checking": "確認中…",
+      "pending": "TXT レコードがまだ見つかりません。DNS の反映には数分かかることがあります。",
+      "loading": "ドメインを読み込み中…",
+      "empty": "まだ認証済みドメインはありません。",
+      "columns": {
+        "domain": "ドメイン",
+        "status": "ステータス"
+      },
+      "status": {
+        "verified": "認証済み",
+        "pending": "保留中"
+      },
+      "delete": "削除",
+      "deleteConfirm": "この組織から {domain} を削除しますか？"
     }
   },
   "error": {
@@ -229,6 +256,8 @@
     "connect_failed": "接続を開始できませんでした。もう一度お試しください。",
     "revoke_failed": "そのアカウントを切断できませんでした。もう一度お試しください。",
     "client_error": "問題が発生しました。もう一度お試しください。",
-    "unknown": "問題が発生しました。もう一度お試しください。"
+    "unknown": "問題が発生しました。もう一度お試しください。",
+    "invalid_domain": "acme.com のような有効なホスト名を入力してください。",
+    "domain_not_found": "そのドメインは見つかりませんでした。"
   }
 }

@@ -23,7 +23,8 @@ const root = path.resolve(import.meta.dirname, "..");
 const dist = path.join(root, "dist");
 
 const PER_WIDGET_BUDGET = 16 * 1024;
-const COMBINED_BUDGET = 72 * 1024;
+// Seven standalone widgets × 16 KB ≈ 112 KB; keep headroom for shared CSS.
+const COMBINED_BUDGET = 112 * 1024;
 
 const widgets = [
   "sso-connection",
@@ -32,6 +33,7 @@ const widgets = [
   "api-keys",
   "user-sessions",
   "organization-switcher",
+  "domain-verification",
 ];
 
 function gzipSize(file) {

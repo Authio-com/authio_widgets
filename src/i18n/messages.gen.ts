@@ -1326,6 +1326,171 @@ export const pipes: LocaleCatalog = {
   }
 } as const;
 
+export const domainVerification: LocaleCatalog = {
+  "en": {
+    "title": "Domain verification",
+    "subtitle": "Prove ownership of your company domain with a DNS TXT record. Required for SSO email routing.",
+    "domainLabel": "Domain to verify",
+    "domainPlaceholder": "acme.com",
+    "instructions": "Add the following TXT record at your DNS provider, then click Check now. DNS changes can take a few minutes to propagate.",
+    "record": {
+      "type": "Type",
+      "host": "Host / Name",
+      "value": "Value"
+    },
+    "checkNow": "Check now",
+    "checking": "Checking…",
+    "pending": "TXT record not found yet. DNS can take a few minutes to propagate.",
+    "loading": "Loading domains…",
+    "empty": "No domains verified yet.",
+    "columns": {
+      "domain": "Domain",
+      "status": "Status"
+    },
+    "status": {
+      "verified": "verified",
+      "pending": "pending"
+    },
+    "delete": "Remove",
+    "deleteConfirm": "Remove {domain} from this organization?"
+  },
+  "de": {
+    "title": "Domain-Verifizierung",
+    "subtitle": "Bestätigen Sie den Besitz Ihrer Unternehmensdomain mit einem DNS-TXT-Eintrag. Erforderlich für SSO-E-Mail-Routing.",
+    "domainLabel": "Zu verifizierende Domain",
+    "domainPlaceholder": "acme.com",
+    "instructions": "Fügen Sie den folgenden TXT-Eintrag bei Ihrem DNS-Anbieter hinzu und klicken Sie dann auf Jetzt prüfen. DNS-Änderungen können einige Minuten dauern.",
+    "record": {
+      "type": "Typ",
+      "host": "Host / Name",
+      "value": "Wert"
+    },
+    "checkNow": "Jetzt prüfen",
+    "checking": "Wird geprüft…",
+    "pending": "TXT-Eintrag noch nicht gefunden. DNS kann einige Minuten brauchen.",
+    "loading": "Domains werden geladen…",
+    "empty": "Noch keine Domains verifiziert.",
+    "columns": {
+      "domain": "Domain",
+      "status": "Status"
+    },
+    "status": {
+      "verified": "verifiziert",
+      "pending": "ausstehend"
+    },
+    "delete": "Entfernen",
+    "deleteConfirm": "{domain} aus dieser Organisation entfernen?"
+  },
+  "fr": {
+    "title": "Vérification de domaine",
+    "subtitle": "Prouvez la propriété de votre domaine d'entreprise avec un enregistrement DNS TXT. Requis pour le routage e-mail SSO.",
+    "domainLabel": "Domaine à vérifier",
+    "domainPlaceholder": "acme.com",
+    "instructions": "Ajoutez l'enregistrement TXT suivant chez votre fournisseur DNS, puis cliquez sur Vérifier. La propagation DNS peut prendre quelques minutes.",
+    "record": {
+      "type": "Type",
+      "host": "Hôte / Nom",
+      "value": "Valeur"
+    },
+    "checkNow": "Vérifier",
+    "checking": "Vérification…",
+    "pending": "Enregistrement TXT introuvable pour l'instant. La propagation DNS peut prendre quelques minutes.",
+    "loading": "Chargement des domaines…",
+    "empty": "Aucun domaine vérifié pour l'instant.",
+    "columns": {
+      "domain": "Domaine",
+      "status": "Statut"
+    },
+    "status": {
+      "verified": "vérifié",
+      "pending": "en attente"
+    },
+    "delete": "Supprimer",
+    "deleteConfirm": "Retirer {domain} de cette organisation ?"
+  },
+  "es": {
+    "title": "Verificación de dominio",
+    "subtitle": "Demuestra la propiedad de tu dominio de empresa con un registro DNS TXT. Necesario para el enrutamiento de correo SSO.",
+    "domainLabel": "Dominio a verificar",
+    "domainPlaceholder": "acme.com",
+    "instructions": "Añade el siguiente registro TXT en tu proveedor DNS y luego haz clic en Comprobar ahora. Los cambios de DNS pueden tardar unos minutos.",
+    "record": {
+      "type": "Tipo",
+      "host": "Host / Nombre",
+      "value": "Valor"
+    },
+    "checkNow": "Comprobar ahora",
+    "checking": "Comprobando…",
+    "pending": "Aún no se encontró el registro TXT. La propagación DNS puede tardar unos minutos.",
+    "loading": "Cargando dominios…",
+    "empty": "Aún no hay dominios verificados.",
+    "columns": {
+      "domain": "Dominio",
+      "status": "Estado"
+    },
+    "status": {
+      "verified": "verificado",
+      "pending": "pendiente"
+    },
+    "delete": "Eliminar",
+    "deleteConfirm": "¿Quitar {domain} de esta organización?"
+  },
+  "ja": {
+    "title": "ドメイン認証",
+    "subtitle": "DNS TXT レコードで会社ドメインの所有権を証明します。SSO のメールルーティングに必要です。",
+    "domainLabel": "認証するドメイン",
+    "domainPlaceholder": "acme.com",
+    "instructions": "DNS プロバイダーに次の TXT レコードを追加し、「今すぐ確認」をクリックしてください。DNS の反映には数分かかることがあります。",
+    "record": {
+      "type": "タイプ",
+      "host": "ホスト / 名前",
+      "value": "値"
+    },
+    "checkNow": "今すぐ確認",
+    "checking": "確認中…",
+    "pending": "TXT レコードがまだ見つかりません。DNS の反映には数分かかることがあります。",
+    "loading": "ドメインを読み込み中…",
+    "empty": "まだ認証済みドメインはありません。",
+    "columns": {
+      "domain": "ドメイン",
+      "status": "ステータス"
+    },
+    "status": {
+      "verified": "認証済み",
+      "pending": "保留中"
+    },
+    "delete": "削除",
+    "deleteConfirm": "この組織から {domain} を削除しますか？"
+  },
+  "pt-BR": {
+    "title": "Verificação de domínio",
+    "subtitle": "Comprove a propriedade do domínio da sua empresa com um registro DNS TXT. Necessário para o roteamento de e-mail SSO.",
+    "domainLabel": "Domínio a verificar",
+    "domainPlaceholder": "acme.com",
+    "instructions": "Adicione o seguinte registro TXT no seu provedor de DNS e clique em Verificar agora. As alterações de DNS podem levar alguns minutos.",
+    "record": {
+      "type": "Tipo",
+      "host": "Host / Nome",
+      "value": "Valor"
+    },
+    "checkNow": "Verificar agora",
+    "checking": "Verificando…",
+    "pending": "Registro TXT ainda não encontrado. A propagação do DNS pode levar alguns minutos.",
+    "loading": "Carregando domínios…",
+    "empty": "Nenhum domínio verificado ainda.",
+    "columns": {
+      "domain": "Domínio",
+      "status": "Status"
+    },
+    "status": {
+      "verified": "verificado",
+      "pending": "pendente"
+    },
+    "delete": "Remover",
+    "deleteConfirm": "Remover {domain} desta organização?"
+  }
+} as const;
+
 export const error: LocaleCatalog = {
   "en": {
     "network_error": "Couldn't reach the server. Check your connection and try again.",
@@ -1339,6 +1504,8 @@ export const error: LocaleCatalog = {
     "connect_failed": "Couldn't start the connection. Please try again.",
     "revoke_failed": "Couldn't disconnect that account. Please try again.",
     "client_error": "Something went wrong. Please try again.",
+    "invalid_domain": "Enter a valid hostname like acme.com.",
+    "domain_not_found": "That domain was not found.",
     "unknown": "Something went wrong. Please try again."
   },
   "de": {
@@ -1353,7 +1520,9 @@ export const error: LocaleCatalog = {
     "connect_failed": "Die Verbindung konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
     "revoke_failed": "Dieses Konto konnte nicht getrennt werden. Bitte versuchen Sie es erneut.",
     "client_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
-    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "invalid_domain": "Geben Sie einen gültigen Hostnamen wie acme.com ein.",
+    "domain_not_found": "Diese Domain wurde nicht gefunden."
   },
   "fr": {
     "network_error": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
@@ -1367,7 +1536,9 @@ export const error: LocaleCatalog = {
     "connect_failed": "Impossible de démarrer la connexion. Veuillez réessayer.",
     "revoke_failed": "Impossible de déconnecter ce compte. Veuillez réessayer.",
     "client_error": "Une erreur s’est produite. Veuillez réessayer.",
-    "unknown": "Une erreur s’est produite. Veuillez réessayer."
+    "unknown": "Une erreur s’est produite. Veuillez réessayer.",
+    "invalid_domain": "Saisissez un nom d'hôte valide comme acme.com.",
+    "domain_not_found": "Ce domaine est introuvable."
   },
   "es": {
     "network_error": "No se pudo conectar con el servidor. Comprueba tu conexión e inténtalo de nuevo.",
@@ -1381,7 +1552,9 @@ export const error: LocaleCatalog = {
     "connect_failed": "No se pudo iniciar la conexión. Inténtalo de nuevo.",
     "revoke_failed": "No se pudo desconectar esa cuenta. Inténtalo de nuevo.",
     "client_error": "Algo salió mal. Inténtalo de nuevo.",
-    "unknown": "Algo salió mal. Inténtalo de nuevo."
+    "unknown": "Algo salió mal. Inténtalo de nuevo.",
+    "invalid_domain": "Introduce un nombre de host válido como acme.com.",
+    "domain_not_found": "No se encontró ese dominio."
   },
   "ja": {
     "network_error": "サーバーに接続できませんでした。接続を確認して再試行してください。",
@@ -1395,7 +1568,9 @@ export const error: LocaleCatalog = {
     "connect_failed": "接続を開始できませんでした。もう一度お試しください。",
     "revoke_failed": "そのアカウントを切断できませんでした。もう一度お試しください。",
     "client_error": "問題が発生しました。もう一度お試しください。",
-    "unknown": "問題が発生しました。もう一度お試しください。"
+    "unknown": "問題が発生しました。もう一度お試しください。",
+    "invalid_domain": "acme.com のような有効なホスト名を入力してください。",
+    "domain_not_found": "そのドメインは見つかりませんでした。"
   },
   "pt-BR": {
     "network_error": "Não foi possível acessar o servidor. Verifique sua conexão e tente novamente.",
@@ -1409,6 +1584,8 @@ export const error: LocaleCatalog = {
     "connect_failed": "Não foi possível iniciar a conexão. Tente novamente.",
     "revoke_failed": "Não foi possível desconectar essa conta. Tente novamente.",
     "client_error": "Algo deu errado. Tente novamente.",
-    "unknown": "Algo deu errado. Tente novamente."
+    "unknown": "Algo deu errado. Tente novamente.",
+    "invalid_domain": "Informe um hostname válido como acme.com.",
+    "domain_not_found": "Esse domínio não foi encontrado."
   }
 } as const;

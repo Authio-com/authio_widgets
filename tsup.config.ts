@@ -13,6 +13,7 @@ export default defineConfig({
     "api-keys": "src/api-keys.tsx",
     "user-sessions": "src/user-sessions.tsx",
     "organization-switcher": "src/organization-switcher.tsx",
+    "domain-verification": "src/domain-verification.tsx",
   },
   format: ["esm", "cjs"],
   dts: true,

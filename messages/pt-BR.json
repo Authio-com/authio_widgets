@@ -215,6 +215,33 @@
       "connectedWith": "Conectado · {email}",
       "errorFallback": "Não foi possível carregar as contas conectadas.",
       "retry": "Tentar novamente"
+    },
+    "domainVerification": {
+      "title": "Verificação de domínio",
+      "subtitle": "Comprove a propriedade do domínio da sua empresa com um registro DNS TXT. Necessário para o roteamento de e-mail SSO.",
+      "domainLabel": "Domínio a verificar",
+      "domainPlaceholder": "acme.com",
+      "instructions": "Adicione o seguinte registro TXT no seu provedor de DNS e clique em Verificar agora. As alterações de DNS podem levar alguns minutos.",
+      "record": {
+        "type": "Tipo",
+        "host": "Host / Nome",
+        "value": "Valor"
+      },
+      "checkNow": "Verificar agora",
+      "checking": "Verificando…",
+      "pending": "Registro TXT ainda não encontrado. A propagação do DNS pode levar alguns minutos.",
+      "loading": "Carregando domínios…",
+      "empty": "Nenhum domínio verificado ainda.",
+      "columns": {
+        "domain": "Domínio",
+        "status": "Status"
+      },
+      "status": {
+        "verified": "verificado",
+        "pending": "pendente"
+      },
+      "delete": "Remover",
+      "deleteConfirm": "Remover {domain} desta organização?"
     }
   },
   "error": {
@@ -229,6 +256,8 @@
     "connect_failed": "Não foi possível iniciar a conexão. Tente novamente.",
     "revoke_failed": "Não foi possível desconectar essa conta. Tente novamente.",
     "client_error": "Algo deu errado. Tente novamente.",
-    "unknown": "Algo deu errado. Tente novamente."
+    "unknown": "Algo deu errado. Tente novamente.",
+    "invalid_domain": "Informe um hostname válido como acme.com.",
+    "domain_not_found": "Esse domínio não foi encontrado."
   }
 }

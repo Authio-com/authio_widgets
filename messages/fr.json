@@ -215,6 +215,33 @@
       "connectedWith": "Connecté · {email}",
       "errorFallback": "Impossible de charger les comptes connectés.",
       "retry": "Réessayer"
+    },
+    "domainVerification": {
+      "title": "Vérification de domaine",
+      "subtitle": "Prouvez la propriété de votre domaine d'entreprise avec un enregistrement DNS TXT. Requis pour le routage e-mail SSO.",
+      "domainLabel": "Domaine à vérifier",
+      "domainPlaceholder": "acme.com",
+      "instructions": "Ajoutez l'enregistrement TXT suivant chez votre fournisseur DNS, puis cliquez sur Vérifier. La propagation DNS peut prendre quelques minutes.",
+      "record": {
+        "type": "Type",
+        "host": "Hôte / Nom",
+        "value": "Valeur"
+      },
+      "checkNow": "Vérifier",
+      "checking": "Vérification…",
+      "pending": "Enregistrement TXT introuvable pour l'instant. La propagation DNS peut prendre quelques minutes.",
+      "loading": "Chargement des domaines…",
+      "empty": "Aucun domaine vérifié pour l'instant.",
+      "columns": {
+        "domain": "Domaine",
+        "status": "Statut"
+      },
+      "status": {
+        "verified": "vérifié",
+        "pending": "en attente"
+      },
+      "delete": "Supprimer",
+      "deleteConfirm": "Retirer {domain} de cette organisation ?"
     }
   },
   "error": {
@@ -229,6 +256,8 @@
     "connect_failed": "Impossible de démarrer la connexion. Veuillez réessayer.",
     "revoke_failed": "Impossible de déconnecter ce compte. Veuillez réessayer.",
     "client_error": "Une erreur s’est produite. Veuillez réessayer.",
-    "unknown": "Une erreur s’est produite. Veuillez réessayer."
+    "unknown": "Une erreur s’est produite. Veuillez réessayer.",
+    "invalid_domain": "Saisissez un nom d'hôte valide comme acme.com.",
+    "domain_not_found": "Ce domaine est introuvable."
   }
 }

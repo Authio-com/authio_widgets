@@ -80,6 +80,7 @@ export const WIDGET_CSS = /* css */ `
   background: rgba(37, 99, 235, 0.08); color: var(--aw-accent);
 }
 [data-authio-widget] .aw-pill[data-tone="success"] { background: rgba(22, 163, 74, 0.1); color: var(--aw-success); }
+[data-authio-widget] .aw-pill[data-tone="warn"] { background: rgba(217, 119, 6, 0.12); color: #d97706; }
 [data-authio-widget] .aw-pill[data-tone="danger"] { background: rgba(220, 38, 38, 0.1); color: var(--aw-danger); }
 [data-authio-widget] .aw-pill[data-tone="muted"] { background: var(--aw-border); color: var(--aw-muted); }
 [data-authio-widget] .aw-error {

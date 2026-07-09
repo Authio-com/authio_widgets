@@ -2,6 +2,14 @@
 
 All notable changes to `@useauthio/widgets`.
 
+## 0.3.3 — 2026-07-09
+
+### Added
+- **Domain Verification widget.** `<AuthioDomainVerificationWidget>` +
+  `mountDomainVerificationWidget` — DNS TXT challenge for org domains,
+  matching the hosted SSO Setup Portal challenge value. Scope:
+  `domain_verification`. Backed by auth-core `GET/POST/DELETE /widget/domains*`.
+
 ## 0.3.2 — 2026-06-17
 
 ### Added
