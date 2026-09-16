@@ -1,5 +1,5 @@
 /**
- * <AuthioPipesWidget /> — drop-in provider connection management surface
+ * <AuthioValetWidget /> — drop-in provider connection management surface for Authio Valet (formerly Pipes)
  * backed by `authio_pipes /v1/pipes/*`.
  *
  * Renders a list of connectable providers (Google, Slack, GitHub,
@@ -50,29 +50,29 @@ import type {
 // Props and event types
 // =====================================================================
 
-export interface AuthioPipesWidgetProps extends WidgetClientOptions {
-  onConnectionChange?: (event: PipesConnectionEvent) => void;
+export interface AuthioValetWidgetProps extends WidgetClientOptions {
+  onConnectionChange?: (event: ValetConnectionEvent) => void;
   style?: CSSProperties;
   className?: string;
 }
 
-export type PipesConnectionEvent =
+export type ValetConnectionEvent =
   | { type: "loaded"; connections: PipesConnection[]; providers: PipesProvider[] }
   | { type: "connected"; connection: PipesConnection }
   | { type: "revoked"; connectionId: string; providerId: string }
   | { type: "error"; error: WidgetError };
 
-export interface MountedPipesWidget {
+export interface MountedValetWidget {
   unmount: () => void;
-  update: (props: Partial<AuthioPipesWidgetProps>) => void;
+  update: (props: Partial<AuthioValetWidgetProps>) => void;
 }
 
 // =====================================================================
 // React component
 // =====================================================================
 
-export function AuthioPipesWidget(
-  props: AuthioPipesWidgetProps,
+export function AuthioValetWidget(
+  props: AuthioValetWidgetProps,
 ): ReactElement {
   const { onConnectionChange, style, className, ...clientOpts } = props;
 
@@ -339,10 +339,10 @@ function btnStyle(
 // =====================================================================
 
 /**
- * Mount the Pipes widget without React as a peer dependency in the host.
+ * Mount the Valet widget without React as a peer dependency in the host.
  *
  * ```ts
- * const widget = mountPipesWidget(document.getElementById('pipes-root'), {
+ * const widget = mountValetWidget(document.getElementById('valet-root'), {
  *   token: widgetToken,
  *   organizationId: orgId,
  * });
@@ -350,15 +350,15 @@ function btnStyle(
  * widget.unmount();
  * ```
  */
-export function mountPipesWidget(
+export function mountValetWidget(
   container: Element,
-  props: AuthioPipesWidgetProps,
-): MountedPipesWidget {
+  props: AuthioValetWidgetProps,
+): MountedValetWidget {
   const root: Root = createRoot(container);
   const propsRef = { current: props };
 
   function render() {
-    root.render(<AuthioPipesWidget {...propsRef.current} />);
+    root.render(<AuthioValetWidget {...propsRef.current} />);
   }
 
   render();
@@ -373,3 +373,19 @@ export function mountPipesWidget(
     },
   };
 }
+
+// =====================================================================
+// Deprecated aliases — Pipes was renamed Valet (product taxonomy §2.8).
+// Removed in the next major; identical props and behavior until then.
+// =====================================================================
+
+/** @deprecated Use `AuthioValetWidget`. */
+export const AuthioPipesWidget = AuthioValetWidget;
+/** @deprecated Use `mountValetWidget`. */
+export const mountPipesWidget = mountValetWidget;
+/** @deprecated Use `AuthioValetWidgetProps`. */
+export type AuthioPipesWidgetProps = AuthioValetWidgetProps;
+/** @deprecated Use `ValetConnectionEvent`. */
+export type PipesConnectionEvent = ValetConnectionEvent;
+/** @deprecated Use `MountedValetWidget`. */
+export type MountedPipesWidget = MountedValetWidget;

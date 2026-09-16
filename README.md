@@ -7,7 +7,7 @@
 
 Drop-in React widgets that let your customers' IT admins configure
 **SSO**, **Directory Sync**, **Domain Verification**, **Audit Log**,
-**API Keys**, **Sessions**, **Org Switcher**, and **Pipes** *inside
+**API Keys**, **Sessions**, **Org Switcher**, and **Valet** *inside
 your own product* — no dashboard bounce.
 
 ## Install
@@ -156,7 +156,7 @@ handle.unmount();
 - `<AuthioAPIKeysWidget>` — mint / list / revoke API keys for the org.
 - `<AuthioUserSessionsWidget>` — list and revoke end-user sessions.
 - `<AuthioOrganizationSwitcherWidget>` — switch active org in-session.
-- `<AuthioPipesWidget>` — connect third-party OAuth providers (Pipes).
+- `<AuthioValetWidget>` — let users connect third-party accounts (GitHub, Google, Slack, Salesforce, HubSpot) that Valet holds and refreshes. `<AuthioPipesWidget>` remains as a deprecated alias.
 
 **Imperative mounts** (`mountSSOConnectionWidget`,
 `mountDirectorySyncWidget`, `mountAuditLogWidget`, …) for Vue, Svelte,
