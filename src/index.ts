@@ -64,10 +64,16 @@ export type {
 } from "./organization-switcher";
 
 export {
+  AuthioValetWidget,
+  mountValetWidget,
+  // Deprecated aliases (Pipes → Valet rename); removed in the next major.
   AuthioPipesWidget,
   mountPipesWidget,
 } from "./pipes";
 export type {
+  AuthioValetWidgetProps,
+  ValetConnectionEvent,
+  MountedValetWidget,
   AuthioPipesWidgetProps,
   PipesConnectionEvent,
   MountedPipesWidget,
