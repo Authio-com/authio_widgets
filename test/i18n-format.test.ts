@@ -1,5 +1,37 @@
 import { describe, expect, it } from "vitest";
-import { formatMessage } from "../src/i18n/format";
+import { formatDate, formatMessage } from "../src/i18n/format";
+
+describe("formatDate — widget locale, not browser locale", () => {
+  const when = new Date(Date.UTC(2026, 2, 5, 14, 30));
+
+  it("follows the locale argument rather than the runtime default", () => {
+    const en = formatDate(when, "en", "date");
+    const de = formatDate(when, "de", "date");
+    expect(en).toBe(new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(when));
+    expect(de).toBe(new Intl.DateTimeFormat("de", { dateStyle: "medium" }).format(when));
+    expect(en).not.toBe(de);
+  });
+
+  it("accepts ISO strings and includes the time by default", () => {
+    const iso = when.toISOString();
+    expect(formatDate(iso, "en")).toBe(
+      new Intl.DateTimeFormat("en", { dateStyle: "medium", timeStyle: "short" }).format(when),
+    );
+  });
+
+  it("returns an empty string for missing or invalid input", () => {
+    expect(formatDate(null, "en")).toBe("");
+    expect(formatDate(undefined, "en")).toBe("");
+    expect(formatDate("", "en")).toBe("");
+    expect(formatDate("not a date", "en")).toBe("");
+  });
+
+  it("falls back to English for an unknown locale tag", () => {
+    expect(formatDate(when, "x-not-a-locale!!", "date")).toBe(
+      new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(when),
+    );
+  });
+});
 
 describe("formatMessage — ICU-lite", () => {
   it("passes plain strings through untouched", () => {

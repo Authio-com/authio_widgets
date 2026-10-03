@@ -20,6 +20,7 @@ import { createRoot, type Root } from "react-dom/client";
 import { WidgetClient } from "./client";
 import { WidgetError } from "./errors";
 import {
+  formatDate,
   humanizeError,
   makeTranslator,
   resolveWidgetLocale,
@@ -229,11 +230,11 @@ export function AuthioAPIKeysWidget(
                   {k.prefix}…
                 </td>
                 <td style={{ fontSize: 12 }}>
-                  {new Date(k.created_at).toLocaleDateString()}
+                  {formatDate(k.created_at, locale, "date")}
                 </td>
                 <td style={{ fontSize: 12 }}>
                   {k.last_used_at ? (
-                    new Date(k.last_used_at).toLocaleDateString()
+                    formatDate(k.last_used_at, locale, "date")
                   ) : (
                     <span className="aw-muted">{t("never")}</span>
                   )}

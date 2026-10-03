@@ -21,6 +21,7 @@ import { formatMessage, type FormatValues } from "./format";
 import { type Locale } from "./locale";
 
 export { SUPPORTED_LOCALES, DEFAULT_LOCALE, resolveWidgetLocale, normalizeLocale, isSupportedLocale } from "./locale";
+export { formatDate } from "./format";
 export type { Locale } from "./locale";
 export type { FormatValues } from "./format";
 

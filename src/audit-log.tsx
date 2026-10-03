@@ -20,7 +20,7 @@ import {
 import { createRoot, type Root } from "react-dom/client";
 import { WidgetClient } from "./client";
 import { WidgetError } from "./errors";
-import { humanizeError, makeTranslator, resolveWidgetLocale } from "./i18n";
+import { formatDate, humanizeError, makeTranslator, resolveWidgetLocale } from "./i18n";
 import {
   auditLog as catalog,
   common,
@@ -261,7 +261,7 @@ export function AuthioAuditLogWidget(
                   >
                     <td>
                       <span style={{ fontSize: 12 }}>
-                        {new Date(e.created_at).toLocaleString()}
+                        {formatDate(e.created_at, locale)}
                       </span>
                     </td>
                     <td>

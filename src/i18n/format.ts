@@ -26,6 +26,35 @@
 export type FormatValues = Record<string, string | number | boolean | null | undefined>;
 
 /**
+ * Format a timestamp in the *widget's* locale rather than the browser's.
+ *
+ * `Date.prototype.toLocaleString()` with no argument follows the host
+ * browser's language, so a widget rendered with `locale="de"` would show
+ * German strings next to US-formatted dates. Every widget goes through
+ * this helper instead. `style: "date"` is the calendar date only;
+ * `"datetime"` adds the time. Invalid or missing input returns an empty
+ * string instead of "Invalid Date" leaking into the UI.
+ */
+export function formatDate(
+  value: string | number | Date | null | undefined,
+  locale: string,
+  style: "date" | "datetime" = "datetime",
+): string {
+  if (value === null || value === undefined || value === "") return "";
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  const options: Intl.DateTimeFormatOptions =
+    style === "date"
+      ? { dateStyle: "medium" }
+      : { dateStyle: "medium", timeStyle: "short" };
+  try {
+    return new Intl.DateTimeFormat(locale, options).format(date);
+  } catch {
+    return new Intl.DateTimeFormat("en", options).format(date);
+  }
+}
+
+/**
  * Format an ICU-lite `pattern` against `values` for `locale`.
  */
 export function formatMessage(
