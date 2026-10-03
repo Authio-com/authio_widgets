@@ -24,9 +24,11 @@ import { createRoot, type Root } from "react-dom/client";
 import { WidgetClient } from "./client";
 import { WidgetError } from "./errors";
 import {
+  formatDate,
   humanizeError,
   makeTranslator,
   resolveWidgetLocale,
+  type Locale,
   type Translator,
 } from "./i18n";
 import {
@@ -345,6 +347,7 @@ export function AuthioDirectorySyncWidget(
       {!adding && (
         <DirectoryList
           t={t}
+          locale={locale}
           loading={loading}
           directories={directories ?? []}
           onDelete={handleDelete}
@@ -358,6 +361,7 @@ export function AuthioDirectorySyncWidget(
       {usersFor && (
         <UsersPanel
           t={t}
+          locale={locale}
           directoryId={usersFor.directoryId}
           users={usersFor.users}
           loading={usersFor.loading}
@@ -368,6 +372,7 @@ export function AuthioDirectorySyncWidget(
       {groupsFor && (
         <GroupsPanel
           t={t}
+          locale={locale}
           directoryId={groupsFor.directoryId}
           groups={groupsFor.groups}
           loading={groupsFor.loading}
@@ -384,6 +389,7 @@ export function AuthioDirectorySyncWidget(
 
 function DirectoryList(props: {
   t: Translator;
+  locale: Locale;
   loading: boolean;
   directories: Directory[];
   onDelete: (id: string) => void | Promise<void>;
@@ -437,7 +443,7 @@ function DirectoryList(props: {
             </td>
             <td>
               {d.last_sync_at ? (
-                new Date(d.last_sync_at).toLocaleString()
+                formatDate(d.last_sync_at, props.locale)
               ) : (
                 <span className="aw-muted">{t("never")}</span>
               )}
@@ -632,6 +638,7 @@ function SecretReveal(props: {
 
 function UsersPanel(props: {
   t: Translator;
+  locale: Locale;
   directoryId: string;
   users: DirectoryUser[];
   loading: boolean;
@@ -683,7 +690,7 @@ function UsersPanel(props: {
                 </td>
                 <td>
                   {u.last_synced_at ? (
-                    new Date(u.last_synced_at).toLocaleString()
+                    formatDate(u.last_synced_at, props.locale)
                   ) : (
                     <span className="aw-muted">{t("dash")}</span>
                   )}
@@ -699,6 +706,7 @@ function UsersPanel(props: {
 
 function GroupsPanel(props: {
   t: Translator;
+  locale: Locale;
   directoryId: string;
   groups: DirectoryGroup[];
   loading: boolean;
@@ -740,7 +748,7 @@ function GroupsPanel(props: {
                 <td>{g.member_count}</td>
                 <td>
                   {g.last_updated_at ? (
-                    new Date(g.last_updated_at).toLocaleString()
+                    formatDate(g.last_updated_at, props.locale)
                   ) : (
                     <span className="aw-muted">{t("dash")}</span>
                   )}

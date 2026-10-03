@@ -19,7 +19,7 @@ import {
 import { createRoot, type Root } from "react-dom/client";
 import { WidgetClient } from "./client";
 import { WidgetError } from "./errors";
-import { humanizeError, makeTranslator, resolveWidgetLocale } from "./i18n";
+import { formatDate, humanizeError, makeTranslator, resolveWidgetLocale } from "./i18n";
 import {
   common,
   error as errorCatalog,
@@ -212,7 +212,7 @@ export function AuthioUserSessionsWidget(
                 </td>
                 <td style={{ fontSize: 12 }}>{s.location ?? t("dash")}</td>
                 <td style={{ fontSize: 12 }}>
-                  {new Date(s.last_active_at).toLocaleString()}
+                  {formatDate(s.last_active_at, locale)}
                 </td>
                 <td>
                   <button

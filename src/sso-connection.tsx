@@ -28,9 +28,11 @@ import { createRoot, type Root } from "react-dom/client";
 import { WidgetClient } from "./client";
 import { WidgetError } from "./errors";
 import {
+  formatDate,
   humanizeError,
   makeTranslator,
   resolveWidgetLocale,
+  type Locale,
   type Translator,
 } from "./i18n";
 import {
@@ -306,6 +308,7 @@ export function AuthioSSOConnectionWidget(
       {!adding && (
         <SSOConnectionList
           t={t}
+          locale={locale}
           loading={loading}
           connections={connections ?? []}
           onTest={handleTest}
@@ -360,6 +363,7 @@ export function AuthioSSOConnectionWidget(
 
 function SSOConnectionList(props: {
   t: Translator;
+  locale: Locale;
   loading: boolean;
   connections: SSOConnection[];
   onTest: (id: string) => void | Promise<void>;
@@ -419,7 +423,7 @@ function SSOConnectionList(props: {
             </td>
             <td>
               {c.configured_at ? (
-                new Date(c.configured_at).toLocaleDateString()
+                formatDate(c.configured_at, props.locale, "date")
               ) : (
                 <span className="aw-muted">{t("never")}</span>
               )}

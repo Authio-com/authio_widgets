@@ -2,6 +2,15 @@
 
 All notable changes to `@useauthio/widgets`.
 
+## 0.4.1 — 2026-10-03
+
+### Fixed
+- **Dates follow the widget's `locale`.** Audit Log, API Keys, SSO
+  Connection, User Sessions, and Directory Sync formatted timestamps with
+  bare `toLocaleString()`, which follows the browser language instead of
+  the widget's resolved locale. All dates now go through one shared
+  `formatDate(value, locale)` helper built on `Intl.DateTimeFormat`.
+
 ## 0.3.4 — 2026-07-09
 
 ### Added
