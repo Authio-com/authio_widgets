@@ -71,6 +71,26 @@ export interface MountedValetWidget {
 // React component
 // =====================================================================
 
+/**
+ * Only navigate to an absolute https URL (http only for localhost dev).
+ * The authorization URL comes from an API response; navigating to a
+ * `javascript:` / `data:` URL would run script in the host page (XSS).
+ */
+export function safeAuthorizationUrl(raw: unknown): string | null {
+  if (typeof raw !== "string" || raw.length === 0) return null;
+  let u: URL;
+  try {
+    u = new URL(raw);
+  } catch {
+    return null;
+  }
+  if (u.protocol === "https:") return u.toString();
+  if (u.protocol === "http:" && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)) {
+    return u.toString();
+  }
+  return null;
+}
+
 export function AuthioValetWidget(
   props: AuthioValetWidgetProps,
 ): ReactElement {
@@ -134,10 +154,14 @@ export function AuthioValetWidget(
     async (providerId: string) => {
       try {
         const result = await client.fetch<{ authorization_url: string }>(
-          `/widget/pipes/connections/${providerId}/authorize`,
+          `/widget/pipes/connections/${encodeURIComponent(providerId)}/authorize`,
           { method: "POST" },
         );
-        window.location.href = result.authorization_url;
+        const target = safeAuthorizationUrl(result.authorization_url);
+        if (!target) {
+          throw new WidgetError("connect_failed", 500, "Invalid authorization URL");
+        }
+        window.location.assign(target);
       } catch (err) {
         const we = err instanceof WidgetError ? err : new WidgetError("connect_failed", 500, String(err));
         onConnectionChange?.({ type: "error", error: we });
