@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
 
       # --- Trivy filesystem scan (HIGH,CRITICAL; fail on findings) ---
       - name: Trivy filesystem scan
@@ -37,10 +39,14 @@ jobs:
         shell: bash
         env:
           GITLEAKS_VERSION: 8.21.2
+          # From gitleaks_8.21.2_checksums.txt on the v8.21.2 release; bump
+          # together with GITLEAKS_VERSION.
+          GITLEAKS_SHA256: 5bc41815076e6ed6ef8fbecc9d9b75bcae31f39029ceb55da08086315316e3ba
         run: |
           set -euo pipefail
           curl -sSfL -o /tmp/gitleaks.tar.gz \
             "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "${GITLEAKS_SHA256}  /tmp/gitleaks.tar.gz" | sha256sum -c -
           tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
           /tmp/gitleaks detect --source . --no-banner --redact --verbose
 
